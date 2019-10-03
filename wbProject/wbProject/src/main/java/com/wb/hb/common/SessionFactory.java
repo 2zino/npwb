@@ -35,7 +35,7 @@ public class SessionFactory {
 		input.put("version", "새번역");
 		List<HashMap<String,String>> outputs = session.selectList("sqlBibleMapper.selectGospel",input);
 		
-		System.out.println(outputs.get(1));
+		System.out.println(outputs.get(0));
 		
 		session.commit();
 		session.close();

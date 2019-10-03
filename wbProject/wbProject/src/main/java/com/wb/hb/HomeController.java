@@ -49,7 +49,7 @@ public class HomeController {
 		java.sql.Connection con= null;
 		java.sql.Statement stmt = null;
 		ResultSet rset = null;
-		String url="106.10.53.202:3306/mysql";
+		String url="jdbc:mysql://106.10.53.202:3306/mysql";
 		String query=null;
 		
 		Class.forName("com.mysql.jdbc.Driver");

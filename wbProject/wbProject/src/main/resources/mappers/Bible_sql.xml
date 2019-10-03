@@ -4,8 +4,20 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="sqlBibleMapper">
+
 	<select id="selectGospel" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		SELECT GOSPEL FROM TB_BIBLE
+			WHERE VERSION = #{version} AND TYPE =#{type}
+			GROUP BY GOSPEL		
 	</select>
+	
+	<!-- type: AD/BC, version: 새번역/개역개정 -->
+	<select id="selectContents" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT VERSE,CONTENTS FROM TB_BIBLE 
+			WHERE TYPE = #{type} AND VERSION =#{version} AND CHATER =#{chapter}
+	</select>
+	
+	
 </mapper>

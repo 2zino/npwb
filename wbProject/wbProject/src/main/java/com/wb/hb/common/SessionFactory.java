@@ -17,7 +17,7 @@ import com.wb.hb.bible.model.Bible;
 public class SessionFactory {
 
 	public void session() {
-		String resource = "src/main/resource/mybatis-config.xml";
+		String resource = "mybatis-config.xml";
 		SqlSession  session = null;
 		
 		try {

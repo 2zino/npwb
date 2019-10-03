@@ -16,9 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
-import com.wb.hb.bible.dao.impl.JdbcBibleDAO;
+import com.wb.hb.bible.dao.JdbcBibleDAO;
 import com.wb.hb.bible.model.Bible;
+import com.wb.hb.common.SessionFactory;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
@@ -46,11 +46,13 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		//test
-
+		/*
 			JdbcBibleDAO jdbcbibledao = new JdbcBibleDAO();
             Bible bible = jdbcbibledao.findByBibleId(17772);
             System.out.println(bible.toString());
-		
+		*/
+		SessionFactory sf = new SessionFactory();
+		sf.session();
 		
 		return "home";
 	}

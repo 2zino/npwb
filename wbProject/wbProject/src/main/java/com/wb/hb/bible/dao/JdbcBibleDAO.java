@@ -1,4 +1,4 @@
-package com.wb.hb.bible.dao.impl;
+package com.wb.hb.bible.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.wb.hb.bible.dao.BibleDAO;
 import com.wb.hb.bible.model.Bible;
 
 public class JdbcBibleDAO implements BibleDAO {

@@ -1,8 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ page session="false" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.*" %>
+<%@ page import="javax.naming.*" %>
 
-<sql:query var="rs" dataSource="jdbc/npwbDB">
+<sql:query var="rs" dataSource="jdbc/mysql">
 select CONTENTS from mysql.TB_BIBLE where seq = '17772'
 </sql:query>
 
@@ -11,18 +14,17 @@ select CONTENTS from mysql.TB_BIBLE where seq = '17772'
 	<title>DB Test</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+<%
+Context initCtx = new InitialContext();
+Context envCtx = (Context)initCtx.lookup("java:comp/env");
+DataSource ds = (DataSource)envCtx.lookup("jdbc/npwbDB");
 
-  <h2>Results</h2>
+Connection conn = ds.getConnection();
+out.println("conn = >" + conn);
 
-<c:forEach var="row" items="${rs.rows}">
-     ${row.CONTENTS}<br/>
-</c:forEach>
+conn.close();
 
-<P>  The time on the server is ${serverTime}. </P>
-<P> deploy test ! </P>
+%>
 </body>
 </html>
 

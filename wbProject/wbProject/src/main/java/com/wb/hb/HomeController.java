@@ -52,7 +52,7 @@ public class HomeController {
             BibleDAO bibleDAO = (BibleDAO) context.getBean("bibleDAO");
             
             Bible bible = bibleDAO.findByBibleId(17772);
-            System.out.println(bible);
+            System.out.println(bible.toString());
 		
 		
 		return "home";

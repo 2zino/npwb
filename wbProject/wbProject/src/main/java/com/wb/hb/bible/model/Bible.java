@@ -27,5 +27,10 @@ public class Bible {
 		this.contents = contents;
 	}
 
+	@Override
+	public String toString() {
+		return "Bible [bibleID=" + bibleID + ", contents=" + contents + "]";
+	}
+
 	
 }

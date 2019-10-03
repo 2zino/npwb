@@ -5,10 +5,6 @@
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
 
-<sql:query var="rs" dataSource="jdbc/mysql">
-select CONTENTS from mysql.TB_BIBLE where seq = '17772'
-</sql:query>
-
 <html>
 <head>
 	<title>DB Test</title>

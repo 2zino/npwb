@@ -17,7 +17,7 @@ import com.wb.hb.bible.model.Bible;
 public class SessionFactory {
 
 	public void session() {
-		String resource = "mybatis-config.xml";
+		String resource = "src/main/resource/mybatis-config.xml";
 		SqlSession  session = null;
 		
 		try {
@@ -33,8 +33,7 @@ public class SessionFactory {
 		
 		HashMap<String,String> input = new HashMap<String, String>();
 		input.put("version", "새번역");
-		List<HashMap<String,String>> outputs
-			= session.selectList("sqlBibleMapper.selectGospel",input);
+		List<HashMap<String,String>> outputs = session.selectList("sqlBibleMapper.selectGospel",input);
 		
 		System.out.println(outputs.get(1));
 		

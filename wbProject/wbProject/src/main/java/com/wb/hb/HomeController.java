@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-import com.wb.hb.bible.dao.BibleDAO;
+import com.wb.hb.bible.dao.impl.JdbcBibleDAO;
 import com.wb.hb.bible.model.Bible;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
@@ -46,12 +46,9 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		//test
-    	ApplicationContext context = 
-        		new ClassPathXmlApplicationContext("Spring-Module.xml");
-        	 
-            BibleDAO bibleDAO = (BibleDAO) context.getBean("bibleDAO");
-            
-            Bible bible = bibleDAO.findByBibleId(17772);
+
+			JdbcBibleDAO jdbcbibledao = new JdbcBibleDAO();
+            Bible bible = jdbcbibledao.findByBibleId(17772);
             System.out.println(bible.toString());
 		
 		

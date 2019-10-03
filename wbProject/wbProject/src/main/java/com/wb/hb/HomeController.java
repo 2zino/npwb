@@ -53,7 +53,7 @@ public class HomeController {
 		String query=null;
 		
 		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection(url,"root","1234qwer");
+		con = DriverManager.getConnection(url,"root","qwer1234");
 		stmt = con.createStatement();
 		query="select CONTENTS from mysql.TB_BIBLE where seq = '17772'";
 		rset = stmt.executeQuery(query);

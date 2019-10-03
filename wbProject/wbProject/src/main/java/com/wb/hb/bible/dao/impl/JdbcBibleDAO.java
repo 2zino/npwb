@@ -4,30 +4,34 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
+
 import com.wb.hb.bible.dao.BibleDAO;
 import com.wb.hb.bible.model.Bible;
 
 public class JdbcBibleDAO implements BibleDAO {
-
-	
-private DataSource dataSource;
-	
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
 	
 	public Bible findByBibleId(int bibleId){
 		
 		String sql = "SELECT * FROM mysql.TB_BIBLE WHERE SEQ = ?";
 		
 		Connection conn = null;
+
+		Bible bible = null;
+		
 		
 		try {
-			conn = dataSource.getConnection();
+			Context initCtx = new InitialContext();
+			Context envCtx = (Context)initCtx.lookup("java:comp/env");
+			DataSource ds = (DataSource)envCtx.lookup("jdbc/npwbDB");
+
+			conn = ds.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, bibleId);
-			Bible bible = null;
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				bible = new Bible(
@@ -36,9 +40,8 @@ private DataSource dataSource;
 			}
 			rs.close();
 			ps.close();
-			return bible;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			if (conn != null) {
 				try {
@@ -46,5 +49,6 @@ private DataSource dataSource;
 				} catch (SQLException e) {}
 			}
 		}
+		return bible;
 	}
 }

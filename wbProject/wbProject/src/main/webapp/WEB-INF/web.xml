@@ -22,9 +22,9 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 			/WEB-INF/spring/appServlet/servlet-context.xml
-			/WEB-INF/spring/appServlet/mybatis-config.xml
 			/WEB-INF/spring/root-context.xml
-			</param-value><!-- mybatis 설정파일을 추가해줌 -->
+			</param-value>
+			<!--2019.10.05 root-context.xml에 있는 sqlsession을 authwired를 못해서 설정파일을 추가해줌-->
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

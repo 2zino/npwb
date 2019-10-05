@@ -3,6 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+  <!-- 
   <environments default="jndi">
     <environment id="jndi">
       <transactionManager type="JDBC" />
@@ -11,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       </dataSource>
     </environment>
   </environments>
+   -->
   <mappers>
   	<mapper resource="/mappers/Bible_sql.xml"/>
   </mappers>

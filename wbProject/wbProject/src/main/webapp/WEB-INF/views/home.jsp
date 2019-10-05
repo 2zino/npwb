@@ -11,6 +11,7 @@
 </head>
 <body>
 <%
+/*
 Context initCtx = new InitialContext();
 Context envCtx = (Context)initCtx.lookup("java:comp/env");
 DataSource ds = (DataSource)envCtx.lookup("jdbc/npwbDB");
@@ -19,7 +20,7 @@ Connection conn = ds.getConnection();
 out.println("conn = >" + conn);
 
 conn.close();
-
+*/
 %>
 </body>
 </html>

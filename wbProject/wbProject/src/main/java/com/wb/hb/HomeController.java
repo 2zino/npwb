@@ -35,23 +35,7 @@ public class HomeController {
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		//test
-		/*
-			JdbcBibleDAO jdbcbibledao = new JdbcBibleDAO();
-            Bible bible = jdbcbibledao.findByBibleId(17772);
-            System.out.println(bible.toString());
-		*/
-		SessionFactory sf = new SessionFactory();
-		sf.session();
-		
+			
 		return "home";
 	}
 	

@@ -1,33 +1,31 @@
 package com.wb.hb;
 
-import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wb.hb.bible.dao.JdbcBibleDAO;
-import com.wb.hb.bible.model.Bible;
+import com.wb.hb.bible.dao.testDao;
 import com.wb.hb.common.SessionFactory;
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
-
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+
+	@Autowired
+	private testDao dao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -59,26 +57,14 @@ public class HomeController {
 	
 	@RequestMapping(value = "/main2.do", method = RequestMethod.GET)
 	public String home2(Locale locale, Model model) throws ClassNotFoundException, SQLException {
-		logger.info("hi");
 		
-		java.sql.Connection con= null;
-		java.sql.Statement stmt = null;
-		ResultSet rset = null;
-		String url="jdbc:mysql://106.10.53.202:3306/mysql";
-		String query=null;
-		
-		Class.forName("com.mysql.jdbc.Driver");
-		con = DriverManager.getConnection(url,"root","qwer1234");
-		stmt = con.createStatement();
-		query="select CONTENTS from mysql.TB_BIBLE where seq = '17772'";
-		rset = stmt.executeQuery(query);
-		
-		while(rset.next()) {
-			System.out.println("ㅇㅇㅇㅇ");
-		}
-		logger.info("bye");
-		
+		List<HashMap<String,String>> sqlTest = dao.getGospe();
+		System.out.println("##################################################");
+		System.out.println(sqlTest.toString());
+		System.out.println("##################################################");
 		return "home";
+		
+		
 	}
 	
 }

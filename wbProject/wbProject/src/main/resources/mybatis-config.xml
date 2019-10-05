@@ -12,9 +12,5 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
       </dataSource>
     </environment>
   </environments>
-   -->
-  <mappers>
-  	<mapper resource="/mappers/Bible_sql.xml"/>
-  </mappers>
-  
+   -->  
 </configuration>

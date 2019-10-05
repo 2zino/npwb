@@ -13,14 +13,14 @@ public class testDao {
 
 	@Autowired
 	@Qualifier("sqlSession") //root-context.xml의 org.mybatis.spring.SqlSessionTemplate의 bean id와 해당 객체를 autowired시켜주기위함
-	SqlSession sql;
+	SqlSession sqlSession;
 	
 	@SuppressWarnings("unchecked")
 	public List<HashMap<String,String>> getGospe() {
 		HashMap<String,String> input = new HashMap<String, String>();
 		input.put("version", "새번역");
 		input.put("type", "AD");
-		return sql.selectList("sqlBibleMapper.selectGospel",input);	
+		return sqlSession.selectList("sqlBibleMapper.selectGospel",input);	
 	}
 	
 }

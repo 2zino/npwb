@@ -22,8 +22,8 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
 			/WEB-INF/spring/appServlet/servlet-context.xml
-			/WEB-INF/spring/appServlet/mybatis-config.xml<!-- mybatis 설정파일을 추가해줌 -->
-			</param-value>
+			/WEB-INF/spring/appServlet/mybatis-config.xml
+			</param-value><!-- mybatis 설정파일을 추가해줌 -->
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

@@ -13,7 +13,8 @@ import javax.sql.DataSource;
 import com.wb.hb.bible.model.Bible;
 
 public class JdbcBibleDAO implements BibleDAO {
-	
+
+	/*
 	public Bible findByBibleId(int bibleId){
 		
 		String sql = "SELECT * FROM mysql.TB_BIBLE WHERE SEQ = ?";
@@ -50,4 +51,5 @@ public class JdbcBibleDAO implements BibleDAO {
 		}
 		return bible;
 	}
+	*/
 }

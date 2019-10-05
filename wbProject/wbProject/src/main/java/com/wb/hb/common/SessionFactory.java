@@ -15,7 +15,7 @@ import com.wb.hb.bible.dao.BibleDAO;
 import com.wb.hb.bible.model.Bible;
 
 public class SessionFactory {
-
+/*
 	public void session() {
 		String resource = "src/main/resource/mybatis-config.xml";
 		SqlSession  session = null;
@@ -41,5 +41,5 @@ public class SessionFactory {
 		session.commit();
 		session.close();
 	}
-
+*/
 }

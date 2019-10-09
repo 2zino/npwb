@@ -38,7 +38,7 @@ public class HomeController {
 		input.put("type", "AD");
 		
 		List<HashMap<String,String>> sqlTest = dao.getGospel(input);
-		
+		logger.debug(sqlTest.toString());
 		return "home";
 	}
 	

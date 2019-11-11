@@ -4,6 +4,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
+<script src="js/vue.js"></script>
 
 <html>
 <head>

@@ -51,7 +51,7 @@ public class HomeController {
 	public ModelAndView home2(Locale locale, Model model) throws ClassNotFoundException, SQLException {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("home");
+		mv.setViewName("home2");
 		HashMap<String,String> input = new HashMap<String, String>();
 
 		input.put("version", "개역개정");

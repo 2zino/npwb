@@ -10,6 +10,26 @@
 		<title>vue Test</title>
 	</head>
 	<body>
-		${gospelList}
+		<div id="gsp">
+			<ul>
+				<li v-for="item in items">
+					{{item}}
+				</li>
+			</ul>
+		</div>
+		
+		
 	</body>
 </html>
+<script>
+
+	var gospelList = new Object();
+	gospelList = '${gospelList}';
+	var gsp=new Vue({
+		el :'#gsp',
+		data:{
+			items:gospelList
+		}
+	})
+
+</script>

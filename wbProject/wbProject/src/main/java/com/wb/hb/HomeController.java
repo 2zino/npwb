@@ -1,6 +1,7 @@
 package com.wb.hb;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -58,7 +59,12 @@ public class HomeController {
 		input.put("type", "BC");
 
 		List<HashMap<String,String>> sqlTest = dao.getGospel(input);
-		String [] abc = {"a","b","c"};
+		ArrayList<String> abc = new ArrayList<String>();
+		
+		abc.add("aa");
+		abc.add("bb");
+		abc.add("cc");
+		
 		mv.addObject("gospelList",abc);
 		
 		return mv;

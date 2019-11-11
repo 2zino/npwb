@@ -57,7 +57,7 @@ public class HomeController {
 		input.put("version", "개역개정");
 		input.put("type", "BC");
 		
-		mv.addObject(dao.getGospel(input));
+		mv.addObject("gospelList",dao.getGospel(input));
 		
 		
 		return mv;

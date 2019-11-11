@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.wb.hb.bible.dao.defaultDao;
 
@@ -40,12 +41,26 @@ public class HomeController {
 
 		List<HashMap<String,String>> sqlTest = dao.getGospel(input);
 		logger.debug(sqlTest.toString());
+		
+		model.addAttribute("gospelList",sqlTest);
+		
 		return "home";
 	}
 	
 	@RequestMapping(value = "/main2.do", method = RequestMethod.GET)
-	public String home2(Locale locale, Model model) throws ClassNotFoundException, SQLException {
-		return "home";
+	public ModelAndView home2(Locale locale, Model model) throws ClassNotFoundException, SQLException {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("home");
+		HashMap<String,String> input = new HashMap<String, String>();
+
+		input.put("version", "개역개정");
+		input.put("type", "BC");
+		
+		mv.addObject(dao.getGospel(input));
+		
+		
+		return mv;
 	}
 	
 }

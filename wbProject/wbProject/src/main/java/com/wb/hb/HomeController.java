@@ -56,8 +56,10 @@ public class HomeController {
 
 		input.put("version", "개역개정");
 		input.put("type", "BC");
+
+		List<HashMap<String,String>> sqlTest = dao.getGospel(input);
 		
-		mv.addObject("gospelList",(List)dao.getGospel(input));
+		mv.addObject("gospelList",sqlTest);
 		
 		return mv;
 	}

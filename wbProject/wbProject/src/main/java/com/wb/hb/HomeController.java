@@ -34,7 +34,7 @@ public class HomeController {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		HashMap<String,String> input = new HashMap<String, String>();
-		input.put("version", "새번역");
+		input.put("version", "개정개역");
 		input.put("type", "AD");
 		
 		List<HashMap<String,String>> sqlTest = dao.getGospel(input);

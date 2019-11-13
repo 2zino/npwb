@@ -64,7 +64,7 @@ public class HomeController {
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonStr = mapper.writeValueAsString(sqlTest);
 		
-		mv.addObject("gospelList",jsonStr);
+		mv.addObject("gospelList",sqlTest);
 		
 		return mv;
 	}

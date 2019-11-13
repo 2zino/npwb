@@ -11,11 +11,11 @@
 	</head>
 	<body>
 		<div id="gsp">
-			<ul>
+			<ol>
 				<li v-for="item in items">
-					{{item}}
+					{{item.GOSPEL}}
 				</li>
-			</ul>
+			</ol>
 		</div>
 		
 		
@@ -23,8 +23,8 @@
 </html>
 <script>
 
-	var gospelList = new Object();
-	gospelList = '${gospelList}';
+	var gospelList=${gospelList};
+	console.log(gospelList);
 	var gsp=new Vue({
 		el :'#gsp',
 		data:{

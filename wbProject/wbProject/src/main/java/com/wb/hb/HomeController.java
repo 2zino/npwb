@@ -58,13 +58,11 @@ public class HomeController {
 
 		input.put("version", "개역개정");
 		input.put("type", "BC");
-
-		List<HashMap<String,String>> sqlTest = dao.getGospel(input);
 		
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonStr = mapper.writeValueAsString(sqlTest);
+		String jsonStr = mapper.writeValueAsString(dao.getGospel(input));
 		
-		mv.addObject("gospelList",sqlTest);
+		mv.addObject("gospelList",jsonStr);
 		
 		return mv;
 	}

@@ -1,7 +1,6 @@
 package com.wb.hb;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -15,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wb.hb.bible.dao.defaultDao;
 
 /**
@@ -49,7 +50,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/main2.do", method = RequestMethod.GET)
-	public ModelAndView home2(Locale locale, Model model) throws ClassNotFoundException, SQLException {
+	public ModelAndView home2(Locale locale, Model model) throws ClassNotFoundException, SQLException, JsonProcessingException {
 		ModelAndView mv = new ModelAndView();
 		
 		mv.setViewName("home2");
@@ -59,13 +60,11 @@ public class HomeController {
 		input.put("type", "BC");
 
 		List<HashMap<String,String>> sqlTest = dao.getGospel(input);
-		ArrayList<String> abc = new ArrayList<String>();
 		
-		abc.add("aa");
-		abc.add("bb");
-		abc.add("cc");
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonStr = mapper.writeValueAsString(sqlTest);
 		
-		mv.addObject("gospelList",abc);
+		mv.addObject("gospelList",jsonStr);
 		
 		return mv;
 	}

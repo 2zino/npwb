@@ -14,6 +14,15 @@
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
 	<dependencies>
+		<!-- Jackson
+			Jackson 라이브러리는 JSON 뿐만 아니라 XML도 변환 해주는 많이 사용되고 있는 라이브러리 입니다.
+			출처: https://offbyone.tistory.com/373 [쉬고 싶은 개발자]
+		 -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.8.8</version>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

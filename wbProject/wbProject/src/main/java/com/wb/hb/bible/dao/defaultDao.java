@@ -34,4 +34,9 @@ public class defaultDao {
 		return sqlSession.selectList("sqlBibleMapper.selectContents",input);	
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<HashMap<String,String>> getChapter(HashMap<String,String> input) {
+		return sqlSession.selectList("sqlBibleMapper.selectChapters",input);	
+	}
+	
 }

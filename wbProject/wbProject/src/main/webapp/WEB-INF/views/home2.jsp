@@ -18,13 +18,19 @@
 			</ol>
 		</div>
 		
+		<div id="chapter">{{message}}</div>
 		
 	</body>
 </html>
 <script>
-
+	var chapterList=${chapterList};
+	var chapter=new Vue({
+		el : '#chapter'.
+		data:{
+			message : chapterList
+		}
+	});
 	var gospelList=${gospelList};
-	console.log(gospelList);
 	var gsp=new Vue({
 		el :'#gsp',
 		data:{

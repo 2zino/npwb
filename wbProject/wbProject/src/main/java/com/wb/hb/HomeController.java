@@ -66,7 +66,10 @@ public class HomeController {
 		input.put("version", "개역개정");
 		input.put("gospel","창세기");
 		
+		String jsonStr2 = mapper.writeValueAsString(dao.getChapter(input));
+		
 		mv.addObject("gospelList",jsonStr);
+		mv.addObject("chapterList",jsonStr);
 		
 		return mv;
 	}

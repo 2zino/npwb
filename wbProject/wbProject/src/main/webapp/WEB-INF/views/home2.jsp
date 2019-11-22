@@ -18,14 +18,14 @@
 			</ol>
 		</div>
 		
-		<div id="chapter">{{message}}</div>
+		<div id="chapter">창세기 : {{message}}</div>
 		
 	</body>
 </html>
 <script>
 	var chapterList=${chapterList};
 	var chapter=new Vue({
-		el : '#chapter'.
+		el : '#chapter',
 		data:{
 			message : chapterList
 		}

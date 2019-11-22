@@ -69,7 +69,7 @@ public class HomeController {
 		String jsonStr2 = mapper.writeValueAsString(dao.getChapter(input));
 		
 		mv.addObject("gospelList",jsonStr);
-		mv.addObject("chapterList",jsonStr);
+		mv.addObject("chapterList",jsonStr2);
 		
 		return mv;
 	}

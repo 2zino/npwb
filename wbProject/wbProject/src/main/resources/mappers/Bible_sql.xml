@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<!-- 장 리스트 -->
-	<select id="selectChapters" parameterType="java.util.HashMap" resultType="java.util.List">
+	<select id="selectChapters" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		SELECT
 			DISTINCT CHAPTER
 		FROM

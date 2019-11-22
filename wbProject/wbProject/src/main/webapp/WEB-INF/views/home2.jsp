@@ -18,7 +18,14 @@
 			</ol>
 		</div>
 		
-		<div id="chapter">창세기 : {{message}}</div>
+		<div id="chapter">
+			창세기 : 
+			<ul>
+				<li v-for="item in items">
+					{{item.CHAPTER}}
+				</li>
+			</ul>
+		</div>
 		
 	</body>
 </html>
@@ -27,7 +34,7 @@
 	var chapter=new Vue({
 		el : '#chapter',
 		data:{
-			message : chapterList
+			items : chapterList
 		}
 	});
 	var gospelList=${gospelList};

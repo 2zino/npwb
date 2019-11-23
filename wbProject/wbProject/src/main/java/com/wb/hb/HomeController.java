@@ -40,11 +40,20 @@ public class HomeController {
 
 		input.put("version", "개역개정");
 		input.put("type", "BC");
-
-		List<HashMap<String,String>> sqlTest = dao.getGospel(input);
-		logger.debug(sqlTest.toString());
 		
-		model.addAttribute("gospelList",sqlTest);
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonStr = "";
+		try {
+			jsonStr = mapper.writeValueAsString(dao.getGospel(input));
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//List<HashMap<String,String>> sqlTest = dao.getGospel(input);
+		logger.debug(jsonStr);
+		
+		model.addAttribute("gospelList",jsonStr);
 		
 		return "home";
 	}

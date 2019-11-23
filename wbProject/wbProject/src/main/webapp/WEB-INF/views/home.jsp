@@ -7,22 +7,14 @@
 <script src="js/vue.js"></script>
 
 <html>
-<head>
-	<title>DB Test</title>
-</head>
+	<head>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!-- 개발자용 콘솔 추가 버전 -->
+		<title>DB Test</title>
+	</head>
 <body>
-<%
-/*
-Context initCtx = new InitialContext();
-Context envCtx = (Context)initCtx.lookup("java:comp/env");
-DataSource ds = (DataSource)envCtx.lookup("jdbc/npwbDB");
 
-Connection conn = ds.getConnection();
-out.println("conn = >" + conn);
+test
 
-conn.close();
-*/
-%>
 </body>
 </html>
 

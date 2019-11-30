@@ -13,7 +13,7 @@ new Vue({
 		posts: []
 	},
 	created() {
-		fetch('/selectDataList.do')
+		fetch('/wbProject/selectDataList.do')
 			.then((response) => {
 				if(response.ok) {
 					return response.json();

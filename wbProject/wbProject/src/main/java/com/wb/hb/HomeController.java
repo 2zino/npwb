@@ -85,7 +85,7 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/selectDataList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/wbProject/selectDataList.do", method = RequestMethod.GET)
 	public String selectDataList(HttpServletRequest request) {
 		
 		HashMap<String,String> input = new HashMap<String, String>();

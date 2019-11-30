@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +83,19 @@ public class HomeController {
 		mv.addObject("chapterList",jsonStr2);
 		
 		return mv;
+	}
+	
+	@RequestMapping(value = "/selectDataList.do", method = RequestMethod.GET)
+	public String selectDataList(HttpServletRequest request) {
+		
+		HashMap<String,String> input = new HashMap<String, String>();
+		
+		if(request.getParameter("") == "type"){
+			logger.debug("parameter >>  type ");
+		}
+		
+		
+		return "home";
 	}
 	
 }

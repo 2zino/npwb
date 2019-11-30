@@ -85,11 +85,9 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/selectDataList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/selectDataList.do", method = RequestMethod.POST)
 	public String selectDataList(HttpServletRequest request) {
-		
-		HashMap<String,String> input = new HashMap<String, String>();
-		
+		logger.debug("call selectDataList.do");
 		if(request.getParameter("") == "type"){
 			logger.debug("parameter >>  type ");
 		} 

@@ -92,7 +92,7 @@ public class HomeController {
 		
 		if(request.getParameter("") == "type"){
 			logger.debug("parameter >>  type ");
-		}
+		} 
 		
 		
 		return "";

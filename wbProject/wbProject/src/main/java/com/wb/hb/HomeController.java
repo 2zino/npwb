@@ -86,14 +86,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/selectDataList.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String selectDataList(HttpServletRequest request) {
+	public String selectDataList(HttpServletRequest request) throws ClassNotFoundException, SQLException, JsonProcessingException {
 		logger.debug("call selectDataList.do");
 		if(request.getParameter("") == "type"){
 			logger.debug("parameter >>  type ");
 		} 
 		
 		
-		return "";
+		return "home";
 	}
 	
 }

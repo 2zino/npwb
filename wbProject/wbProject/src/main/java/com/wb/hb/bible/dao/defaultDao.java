@@ -39,4 +39,9 @@ public class defaultDao {
 		return sqlSession.selectList("sqlBibleMapper.selectChapters",input);	
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<HashMap<String,String>> getTotalData(HashMap<String,String> input) {
+		return sqlSession.selectList("sqlBibleMapper.selectTotal",input);	
+	}
+	
 }

@@ -16,37 +16,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT TYPE FROM TB_BIBLE 
 			GROUP BY TYPE	
 	</select>
-
-	<!-- 복음서 리스트 -->
-	<select id="selectGospel" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-		SELECT
-			GOSPEL 
-		FROM
-			TB_BIBLE 
-		WHERE 
-			VERSION= #{version}
-			<if test="type!=null">
-		    	AND TYPE= #{type}
-		    </if>
-		    AND CHAPTER='1' 
-		    AND VERSE='1'
-		ORDER BY SEQ;
-	</select>
 	
-	<!-- 장 리스트 -->
-	<select id="selectChapters" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-		SELECT
-			DISTINCT CHAPTER
-		FROM
-			TB_BIBLE
-		WHERE
-			VERSION = #{version}
-			AND GOSPEL = #{gospel}
-	</select>
 	<!-- VERSE, CONTENTS 리스트 type: AD/BC, version: 새번역/개역개정 -->
 	<select id="selectContents" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		SELECT VERSE,CONTENTS FROM TB_BIBLE 
 			WHERE TYPE = #{type} AND VERSION =#{version} AND CHATER =#{chapter}
+	</select>
+	
+	<!-- VERSE, CONTENTS 리스트 type: AD/BC, version: 새번역/개역개정 -->
+	<select id="selectTotal" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		SELECT VERSION,GOSPEL,TYPE,CHAPTER,COUNT(*) AS VERSE,MIN(SEQ) AS SEQ
+		FROM TB_BIBLE
+		WHERE VERSION= #{version}
+            AND TYPE IN ('BC','AD')
+		GROUP BY VERSION,GOSPEL,TYPE,CHAPTER
+        ORDER BY SEQ;
 	</select>
 	
 </mapper>

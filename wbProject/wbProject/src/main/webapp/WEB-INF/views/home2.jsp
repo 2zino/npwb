@@ -10,38 +10,22 @@
 		<title>vue Test</title>
 	</head>
 	<body>
-		<div id="gsp">
+		<div id="total">
 			<ol>
 				<li v-for="item in items">
-					{{item.GOSPEL}}
+					{{item}}
 				</li>
 			</ol>
-		</div>
-		
-		<div id="chapter">
-			창세기 : 
-			<ul>
-				<li v-for="item in items">
-					{{item.CHAPTER}}
-				</li>
-			</ul>
 		</div>
 		
 	</body>
 </html>
 <script>
-	var chapterList=${chapterList};
-	var chapter=new Vue({
-		el : '#chapter',
-		data:{
-			items : chapterList
-		}
-	});
-	var gospelList=${gospelList};
+	var totalList=${totalList};
 	var gsp=new Vue({
-		el :'#gsp',
+		el :'#total',
 		data:{
-			items:gospelList
+			items:totalList
 		}
 	})
 

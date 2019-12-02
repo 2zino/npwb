@@ -71,16 +71,9 @@ public class HomeController {
 		input.put("type", "BC");
 		
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonStr = mapper.writeValueAsString(dao.getGospel(input));
+		String jsonStr = mapper.writeValueAsString(dao.getTotalData(input));
 		
-		input.clear();
-		input.put("version", "개역개정");
-		input.put("gospel","창세기");
-		
-		String jsonStr2 = mapper.writeValueAsString(dao.getChapter(input));
-		
-		mv.addObject("gospelList",jsonStr);
-		mv.addObject("chapterList",jsonStr2);
+		mv.addObject("totalList",jsonStr);
 		
 		return mv;
 	}

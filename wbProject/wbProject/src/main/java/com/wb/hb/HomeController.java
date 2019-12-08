@@ -38,24 +38,23 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		HashMap<String,String> input = new HashMap<String, String>();
+/*		HashMap<String,String> input = new HashMap<String, String>();
 
 		input.put("version", "개역개정");
-		input.put("type", "BC");
 		
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonStr = "";
 		try {
-			jsonStr = mapper.writeValueAsString(dao.getGospel(input));
+			jsonStr = mapper.writeValueAsString(dao.getTotalData(input));
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		//List<HashMap<String,String>> sqlTest = dao.getGospel(input);
+		
 		logger.debug(jsonStr);
 		
-		model.addAttribute("gospelList",jsonStr);
+		model.addAttribute("totalList",jsonStr);*/
 		
 		return "home";
 	}

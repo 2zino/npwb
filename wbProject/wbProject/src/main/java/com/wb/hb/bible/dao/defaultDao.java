@@ -15,11 +15,6 @@ public class defaultDao {
 	SqlSession sqlSession;
 	
 	@SuppressWarnings("unchecked")
-	public List<HashMap<String,String>> getGospel(HashMap<String,String> input) {
-		return sqlSession.selectList("sqlBibleMapper.selectGospel",input);	
-	}
-	
-	@SuppressWarnings("unchecked")
 	public List<HashMap<String,String>> getType(HashMap<String,String> input) {
 		return sqlSession.selectList("sqlBibleMapper.selectType",input);	
 	}

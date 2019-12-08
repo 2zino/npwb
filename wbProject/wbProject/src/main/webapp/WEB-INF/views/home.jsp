@@ -6,66 +6,33 @@
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
 <script src="js/vue.js"></script>
-<script>
-new Vue({
-	el: '#app',
-	data: {
-		posts: []
-	},
-	created() {
-		fetch('/wbProject/selectDataList.do')
-			.then((response) => {
-				if(response.ok) {
-					return response.json();
-				}
-			
-				throw new Error('Network response was not ok');
-			})
-			.then((json) => {
-				this.posts.push({
-					type: $("select[name=type]").value
-				});
-			})
-			.catch((error) => {
-				console.log(error);
-			});
-	}
-});
 
-</script>
+
 <html>
 	<head>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script><!-- 개발자용 콘솔 추가 버전 -->
+		
 		<title>DB Test</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	</head>
-<body>
-
-<form id='app'>
-  <select name="type" >
-    <option value="none">=== 선택 ===</option>
-    <option value="BC">구약</option>
-    <option value="AD">신약</option>
-  </select>
-</form>
-
-<form>
-  <select name="gospel" >
-    <option value="none">=== 선택 ===</option>
-  </select>
-</form>
-
-<form>
-  <select name="chapter" >
-    <option value="none">=== 선택 ===</option>
-  </select>
-</form>
-
-<form>
-  <select name="verse" >
-    <option value="none">=== 선택 ===</option>
-  </select>
-</form>
-
+	
+	<body>
+		<div id='test1'>
+		  <select v-model="selected">
+		    <option value="none">Please select one</option>
+		    <option value="BC">구약</option>
+		    <option value="AD">신약</option>
+		  </select>
+		  <span>Selected: {{ selected }}</span>
+		</div>
 
   </body>
 </html>
+<script>
+new Vue({
+	 el: '#test1',
+	  data: {
+	    selected: ''
+	  }
+	});
+	
+</script>

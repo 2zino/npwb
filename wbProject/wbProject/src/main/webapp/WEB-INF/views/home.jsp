@@ -18,26 +18,28 @@
 	<body>
 		<!-- TYPE 신약/구약 -->
 		<div id='test1'>
-			  <select v-model="selected">
-			    <option value="BC">구약</option>
+			<select v-model="type">
+				<option value="BC">구약</option>
 			    <option value="AD">신약</option>
-			  </select>
-		<!-- GOSPEL 복음서 -->
-				<select id='Gospel'>
-			   		<option v-if= "selected == 'BC'" v-for="item in items" v-show ='isBCGospel(item) != null'>
-			   			{{ isBCGospel(item) }}
-					</option>
-					<option v-if= "selected == 'AD'" v-for="item in items" v-show ='isADGospel(item) != null'>
-			   			{{ isADGospel(item) }}
-					</option>
-			  </select>
-		<!-- CHAPTER 장 -->	  
-			  <select>
-			  		<option value =''> </option>
-				  	<option>
-				  	{{ isChapter() }}
-					</option>
-			  </select>
+			</select>
+			<!-- GOSPEL 복음서 -->
+			<select id='Gospel' v-model="gospel">
+				<option v-for="item in items" v-show ='isGospel(item) != null'>
+					{{ isGospel(item) }}
+				</option>
+			</select>
+			<!-- CHAPTER 장 -->	  
+			<select id='Chapter' v-model="chapter" v-on:change="isVerse()">
+				<option v-for="item in items" v-show ='isChapter(item) != null'>
+			 		{{ isChapter(item) }}
+				</option>
+			</select>
+			<!-- VERSE 절 -->	  
+			<select id='Verse'>
+				<option v-for="i in verseLength" >
+					{{i}}
+				</option>
+			</select>
 	</div>		 
 
   </body>
@@ -47,31 +49,40 @@ var totalList=${totalList};
 new Vue({
 	 el: '#test1',
 	  data: {
-	    selected: '',
-	    items:totalList
+	    type: '',
+	    items:totalList,
+	    chapter:'',
+	    verseLength:'0',
+	    gospel:''
 	  },
 		methods:{
-			isADGospel : function(item){
-				if(item.CHAPTER === '1' && item.TYPE === 'AD'){
-					//console.log('item.CHAPTER : '+item.CHAPTER + ' item.TYPE : '+item.TYPE + ' item.GOSPEL : '+ item.GOSPEL);
-					return item.GOSPEL;
-				}
-				return null;
-			},
-			isBCGospel :function(item){
-				if(item.CHAPTER === '1' && item.TYPE === 'BC'){
-					//console.log('item.CHAPTER : '+item.CHAPTER + ' item.TYPE : '+item.TYPE + ' item.GOSPEL : '+ item.GOSPEL);
+			isGospel : function(item){
+				if('' == this.type){
+					return null;
+				}else if(item.CHAPTER == '1' && item.TYPE == this.type){
 					return item.GOSPEL;
 				}
 				return null;
 			},
 			isChapter :function(item){
-				var i;
-				console.log(item);		
-				//if()
-				//for(i=1; i<totalList.VERSE+1;i++)
-				//	return i;
-				//}
+				if(''==this.type || ''==this.gospel){
+					return null;
+				}else if(item.TYPE == this.type && item.GOSPEL == this.gospel){
+					return item.CHAPTER;
+				}
+				return null;
+			},
+			isVerse :function(){
+				for(let i=0;i<this.items.length;i++){
+					let item = this.items[i];
+					if(''==this.type || ''==this.gospel || ''==this.chapter){
+						this.verseLength = 0;
+					}else if(item.TYPE == this.type && item.GOSPEL == this.gospel && item.CHAPTER==this.chapter){
+						this.verseLength = item.VERSE;
+						return;
+					}
+					this.verseLength = 0;	
+				}
 			}
 		}
 	});

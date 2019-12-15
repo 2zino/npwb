@@ -33,30 +33,24 @@ public class HomeController {
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
+	 * @throws JsonProcessingException 
 	 */
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
+	public ModelAndView home(Locale locale, Model model) throws ClassNotFoundException, SQLException, JsonProcessingException {
+		ModelAndView mv = new ModelAndView();
 		
-/*		HashMap<String,String> input = new HashMap<String, String>();
+		mv.setViewName("home");
+		HashMap<String,String> input = new HashMap<String, String>();
 
 		input.put("version", "개역개정");
+		input.put("type", "BC");
 		
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonStr = "";
-		try {
-			jsonStr = mapper.writeValueAsString(dao.getTotalData(input));
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String jsonStr = mapper.writeValueAsString(dao.getTotalData(input));
 		
-		
-		logger.debug(jsonStr);
-		
-		model.addAttribute("totalList",jsonStr);*/
-		
-		return "home";
+		mv.addObject("totalList",jsonStr);
+
+		return mv;
 	}
 	
 	@RequestMapping(value = "/main2.do", method = RequestMethod.GET)
@@ -75,17 +69,6 @@ public class HomeController {
 		mv.addObject("totalList",jsonStr);
 		
 		return mv;
-	}
-	
-	@RequestMapping(value = "/selectDataList.do", method = {RequestMethod.GET, RequestMethod.POST})
-	public String selectDataList(HttpServletRequest request) throws ClassNotFoundException, SQLException, JsonProcessingException {
-		logger.debug("call selectDataList.do");
-		if(request.getParameter("") == "type"){
-			logger.debug("parameter >>  type ");
-		} 
-		
-		
-		return "home";
 	}
 	
 }

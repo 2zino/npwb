@@ -86,7 +86,7 @@ new Vue({
 				}
 			},
 			search : function(){
-				//ajax해줍쇼 ....
+				//ajax해줍쇼 .... 
 				}
 		
 		}

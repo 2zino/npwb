@@ -20,7 +20,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- VERSE, CONTENTS 리스트 type: AD/BC, version: 새번역/개역개정 -->
 	<select id="selectContents" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		SELECT VERSE,CONTENTS FROM TB_BIBLE 
-			WHERE TYPE = #{type} AND VERSION =#{version} AND CHATER =#{chapter}
+			WHERE TYPE = #{type} 
+				AND VERSION =#{version} 
+				AND CHATER =#{chapter}
+				AND GOSPEL =#{gospel}
+				AND VERSE =#{verse}
 	</select>
 	
 	<!-- VERSE, CONTENTS 리스트 type: AD/BC, version: 새번역/개역개정 -->

@@ -13,6 +13,7 @@
 		
 		<title>DB Test</title>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	</head>
 	
 	<body>
@@ -86,8 +87,11 @@ new Vue({
 				}
 			},
 			search : function(){
-				//ajax해줍쇼 .... 
-				}
+				//ajax해줍쇼 ....
+				$.get('/getBible.do',function(data){
+					console.log(data);
+				})
+			}
 		}
 	});
 </script>

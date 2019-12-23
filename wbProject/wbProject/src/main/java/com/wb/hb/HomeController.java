@@ -71,4 +71,21 @@ public class HomeController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/getBible.do", method = RequestMethod.GET)
+	public String getBible(HttpServletRequest request) throws ClassNotFoundException, SQLException, JsonProcessingException {
+		ModelAndView mv = new ModelAndView();
+		
+		HashMap<String,String> input = new HashMap<String, String>();
+
+		input.put("type",request.getParameter("TYPE"));
+		input.put("version", "개역개정");
+		input.put("chapter", request.getParameter("CAHPTER"));
+		input.put("gospel", request.getParameter("GOSPEL"));
+
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonStr = mapper.writeValueAsString(dao.getContents(input));
+		
+		return jsonStr;
+	}
+	
 }

@@ -42,7 +42,6 @@
 			</select>
 			<button v-on:click="search">찾기</button>
 		</div>
-
   </body>
 </html>
 <script>
@@ -88,9 +87,6 @@ new Vue({
 			search : function(){
 				//ajax해줍쇼 .... 
 				}
-		
 		}
 	});
-//vue 인스턴스는 한개만 선언해서 사용해야함 .. !! 
-
 </script>

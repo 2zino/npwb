@@ -35,8 +35,8 @@
 				</option>
 			</select>
 			<!-- VERSE 절 -->	  
-			<select id='Verse'>
-				<option v-for="i in verseLength" >
+			<select id='Verse' v-model = "verse">
+				<option v-for="i in verseLength" v-on:change="selVerse()" >
 					{{i}}
 				</option>
 			</select>
@@ -53,7 +53,8 @@ new Vue({
 	    items:totalList,
 	    chapter:'',
 	    verseLength:'',
-	    gospel:''
+	    gospel:'',
+		verse:''
 	  },
 		methods:{
 			isGospel : function(item){

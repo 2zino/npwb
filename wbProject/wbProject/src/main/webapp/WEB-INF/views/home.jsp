@@ -30,24 +30,27 @@
 				</option>
 			</select>
 			<!-- CHAPTER 장 -->	  
-			<select id='Chapter' v-model="chapter" v-on:change="isVerse()">
+			<select id='Chapter' v-model="chapter"> <!-- v-on:change="isVerse()"> --> 
 				<option v-for="item in items" v-show ='isChapter(item) != null'>
 			 		{{ isChapter(item) }}
 				</option>
 			</select>
 			<!-- VERSE 절 -->	  
+			<!-- 
 			<select id='Verse' v-model = "verse">
 				<option v-for="i in verseLength" v-on:change="selVerse()" >
 					{{i}}
 				</option>
 			</select>
+			 -->
 			<button v-on:click="search">찾기</button>
+			<div>{{verse}}</div>
 		</div>
   </body>
 </html>
 <script>
 var totalList=${totalList};
-new Vue({
+var vm1 = new Vue({
 	 el: '#test1',
 	  data: {
 	    type: '',
@@ -55,7 +58,7 @@ new Vue({
 	    chapter:'',
 	    verseLength:'',
 	    gospel:'',
-		verse:''
+	    verse:'abcd'
 	  },
 		methods:{
 			isGospel : function(item){
@@ -74,6 +77,7 @@ new Vue({
 				}
 				return null;
 			},
+			/*
 			isVerse :function(){
 				for(let i=0;i<this.items.length;i++){
 					let item = this.items[i];
@@ -85,12 +89,25 @@ new Vue({
 					}
 					this.verseLength = 0;	
 				}
-			},
+			},*/
 			search : function(){
 				//ajax해줍쇼 ....
-				$.get('/getBible.do',function(data){
-					console.log(data);
-				})
+				$.ajax({
+					url:'/wb/getBible.do',
+					type:'POST',
+					dataType:"json",
+					data :{
+						"TYPE":this.type,
+						"GOSPEL":this.gospel,
+						"CHAPTER":this.chapter
+					},
+					error:function(){
+						vm1._data.verse="error";
+					},
+					success:function(data){
+						vm1._data.verse=data;
+					}
+				});
 			}
 		}
 	});

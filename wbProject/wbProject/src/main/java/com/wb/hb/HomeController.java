@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -71,19 +72,20 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/getBible.do", method = RequestMethod.GET)
-	public String getBible(HttpServletRequest request) throws ClassNotFoundException, SQLException, JsonProcessingException {
-		ModelAndView mv = new ModelAndView();
+	@RequestMapping(value = "/getBible.do", method = RequestMethod.POST)
+	public @ResponseBody String getBible(HttpServletRequest request) throws ClassNotFoundException, SQLException, JsonProcessingException {
 		
 		HashMap<String,String> input = new HashMap<String, String>();
 
 		input.put("type",request.getParameter("TYPE"));
 		input.put("version", "개역개정");
-		input.put("chapter", request.getParameter("CAHPTER"));
+		input.put("chapter", request.getParameter("CHAPTER"));
 		input.put("gospel", request.getParameter("GOSPEL"));
 
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonStr = mapper.writeValueAsString(dao.getContents(input));
+		
+		logger.debug(jsonStr);
 		
 		return jsonStr;
 	}

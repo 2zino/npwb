@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT VERSE,CONTENTS FROM TB_BIBLE 
 			WHERE TYPE = #{type} 
 				AND VERSION =#{version} 
-				AND CHATER =#{chapter}
+				AND CHAPTER =#{chapter}
 				AND GOSPEL =#{gospel}
 	</select>
 	

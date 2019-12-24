@@ -44,7 +44,7 @@
 			</select>
 			 -->
 			<button v-on:click="search">찾기</button>
-			<div>{{verse}}</div>
+			<div v-for="verse in verses"> {{ isContents(verse) }}</div>
 		</div>
   </body>
 </html>
@@ -58,7 +58,7 @@ var vm1 = new Vue({
 	    chapter:'',
 	    verseLength:'',
 	    gospel:'',
-	    verse:'abcd'
+	    verses:''
 	  },
 		methods:{
 			isGospel : function(item){
@@ -76,6 +76,11 @@ var vm1 = new Vue({
 					return item.CHAPTER;
 				}
 				return null;
+			},
+			isContents :function(verse){
+					var contents ="";
+					contents = verse.VERSE+"."+ verse.CONTENTS+" "
+					return contents;
 			},
 			/*
 			isVerse :function(){
@@ -102,10 +107,10 @@ var vm1 = new Vue({
 						"CHAPTER":this.chapter
 					},
 					error:function(){
-						vm1._data.verse="error";
+						vm1._data.verses="error";
 					},
 					success:function(data){
-						vm1._data.verse=data;
+						vm1._data.verses = data;
 					}
 				});
 			}

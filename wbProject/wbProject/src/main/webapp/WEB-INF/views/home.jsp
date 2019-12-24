@@ -93,7 +93,7 @@ var vm1 = new Vue({
 			search : function(){
 				//ajax해줍쇼 ....
 				$.ajax({
-					url:'/getBible.do',
+					url:'/wbProject/getBible.do',
 					type:'POST',
 					dataType:"json",
 					data :{

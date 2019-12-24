@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,8 +75,9 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/getBible.do", method = RequestMethod.POST)
-	public @ResponseBody String getBible(HttpServletRequest request) throws ClassNotFoundException, SQLException, JsonProcessingException {
+	@RequestMapping(value = "/getBible.do", produces="application/json; charset=UTF8", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<String> getBible(HttpServletRequest request) throws ClassNotFoundException, SQLException, JsonProcessingException {
 		
 		HashMap<String,String> input = new HashMap<String, String>();
 
@@ -83,11 +87,20 @@ public class HomeController {
 		input.put("gospel", request.getParameter("GOSPEL"));
 
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonStr = mapper.writeValueAsString(dao.getContents(input));
-		
+		String jsonStr = "";
+		try {
+				jsonStr = mapper.writeValueAsString(dao.getContents(input));
+			} catch (JsonProcessingException e) {
+			   e.printStackTrace();
+			  }
+	
 		logger.debug(jsonStr);
 		
-		return jsonStr;
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "application/json; charset=utf-8");
+		    
+		return new ResponseEntity<String>(jsonStr, responseHeaders, HttpStatus.CREATED);  
+		//return jsonStr;
 	}
 	
 }

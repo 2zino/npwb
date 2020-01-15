@@ -106,64 +106,35 @@ var vm1 = new Vue({
 				}
 			},*/
 			search : function(){
-				$.ajax({
-					url:'/wbProject/getBible.do',
-					type:'POST',
-					dataType:"json",
-					data :{
-						"TYPE":this.type,
-						"GOSPEL":this.gospel,
-						"CHAPTER":this.chapter
-					},
-					error:function(){
-						vm1._data.verses="error";
-					},
-					success:function(data){
-						vm1._data.verses = data;
-					}
-				});
+				search();
 			},
 			before : function(){
 				this.chapter=Number(this.chapter)-1;
 
-				$.ajax({
-					url:'/wbProject/getBible.do',
-					type:'POST',
-					dataType:"json",
-					data :{
-						"TYPE":this.type,
-						"GOSPEL":this.gospel,
-						"CHAPTER":this.chapter
-					},
-					error:function(){
-						vm1._data.verses="error";
-					},
-					success:function(data){
-						vm1._data.verses = data;
-					}
-				});
+				search();
 			},
 			next : function(){
-
 				this.chapter=Number(this.chapter)+1;
-
-				$.ajax({
-					url:'/wbProject/getBible.do',
-					type:'POST',
-					dataType:"json",
-					data :{
-						"TYPE":this.type,
-						"GOSPEL":this.gospel,
-						"CHAPTER":this.chapter
-					},
-					error:function(){
-						vm1._data.verses="error";
-					},
-					success:function(data){
-						vm1._data.verses = data;
-					}
-				});
+				search();
 			}
 		}
 	});
+	function search(){
+		$.ajax({
+			url:'/wbProject/getBible.do',
+			type:'POST',
+			dataType:"json",
+			data :{
+				"TYPE":vm1.type,
+				"GOSPEL":vm1.gospel,
+				"CHAPTER":vm1.chapter
+			},
+			error:function(){
+				vm1._data.verses="error";
+			},
+			success:function(data){
+				vm1._data.verses = data;
+			}
+		});
+	}
 </script>

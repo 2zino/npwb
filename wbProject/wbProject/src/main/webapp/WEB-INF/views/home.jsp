@@ -19,32 +19,42 @@
 	<body>
 		<!-- TYPE 신약/구약 -->
 		<div id='test1'>
-			<select v-model="type">
-				<option value="BC">구약</option>
-			    <option value="AD">신약</option>
-			</select>
-			<!-- GOSPEL 복음서 -->
-			<select id='Gospel' v-model="gospel">
-				<option v-for="item in items" v-show ='isGospel(item) != null'>
-					{{ isGospel(item) }}
-				</option>
-			</select>
-			<!-- CHAPTER 장 -->	  
-			<select id='Chapter' v-model="chapter"> <!-- v-on:change="isVerse()"> --> 
-				<option v-for="item in items" v-show ='isChapter(item) != null'>
-			 		{{ isChapter(item) }}
-				</option>
-			</select>
-			<!-- VERSE 절 -->	  
-			<!-- 
-			<select id='Verse' v-model = "verse">
-				<option v-for="i in verseLength" v-on:change="selVerse()" >
-					{{i}}
-				</option>
-			</select>
-			 -->
-			<button v-on:click="search">찾기</button>
-			<div v-for="verse in verses"> {{ isContents(verse) }}</div>
+				<div id='menu'>
+					<select v-model="type">
+						<option value="BC">구약</option>
+					    <option value="AD">신약</option>
+					</select>
+					<!-- GOSPEL 복음서 -->
+					<select id='Gospel' v-model="gospel">
+						<option v-for="item in items" v-show ='isGospel(item) != null'>
+							{{ isGospel(item) }}
+						</option>
+					</select>
+					<!-- CHAPTER 장 -->	  
+					<select id='Chapter' v-model="chapter"> <!-- v-on:change="isVerse()"> --> 
+						<option v-for="item in items" v-show ='isChapter(item) != null'>
+					 		{{ isChapter(item) }}
+						</option>
+					</select>
+					<!-- VERSE 절 -->	  
+					<!-- 
+					<select id='Verse' v-model = "verse">
+						<option v-for="i in verseLength" v-on:change="selVerse()" >
+							{{i}}
+						</option>
+					</select>
+					 -->
+					<button v-on:click="search">찾기</button>
+				 </div>
+				<div>
+				<div style="width:11%;float:left" v-on:click="before">이전</div>
+				<div style="width:78%;float:left">
+					<div v-for="verse in verses"> {{ isContents(verse) }}</div>
+				</div>
+				<div style="width:11%;float:left" v-on:click="next">다음</div>
+				</div>
+			
+			
 		</div>
   </body>
 </html>
@@ -96,7 +106,47 @@ var vm1 = new Vue({
 				}
 			},*/
 			search : function(){
-				//ajax해줍쇼 ....
+				$.ajax({
+					url:'/wbProject/getBible.do',
+					type:'POST',
+					dataType:"json",
+					data :{
+						"TYPE":this.type,
+						"GOSPEL":this.gospel,
+						"CHAPTER":this.chapter
+					},
+					error:function(){
+						vm1._data.verses="error";
+					},
+					success:function(data){
+						vm1._data.verses = data;
+					}
+				});
+			},
+			before : function(){
+				this.chapter=Number(this.chapter)-1;
+
+				$.ajax({
+					url:'/wbProject/getBible.do',
+					type:'POST',
+					dataType:"json",
+					data :{
+						"TYPE":this.type,
+						"GOSPEL":this.gospel,
+						"CHAPTER":this.chapter
+					},
+					error:function(){
+						vm1._data.verses="error";
+					},
+					success:function(data){
+						vm1._data.verses = data;
+					}
+				});
+			},
+			next : function(){
+
+				this.chapter=Number(this.chapter)+1;
+
 				$.ajax({
 					url:'/wbProject/getBible.do',
 					type:'POST',

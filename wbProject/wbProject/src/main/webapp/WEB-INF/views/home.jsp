@@ -43,9 +43,7 @@
 	<div class="row">
 		<div class="col-md-3">
 			<div class="dropdown">
-				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-				구약
-				</button>
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>구약</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
 					 <a  class="dropdown-item" value = 'BC' v-on:click = select("BC")>구약</a> 
 					 <a class="dropdown-item" vaule = 'AD' v-on:click =select("AD")>신약</a>
@@ -56,7 +54,7 @@
 			<div class="dropdown">
 				 
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-					창세기
+					<span id = "a">창세기</span>
 				</button>
 				<div class="dropdown-menu" id ='Gospel' aria-labelledby="dropdownMenuButton" >
 					 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" v-on:click = "selectGospel(isGospel(item))">{{ isGospel(item)  }}</a>
@@ -66,9 +64,7 @@
 		<div class="col-md-3">
 			<div class="dropdown">
 				 
-				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-					1
-				</button>
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">1</button>
 				<div class="dropdown-menu" id = 'Chapter' aria-labelledby="dropdownMenuButton">
 					 <a v-for ="item in items" v-show = 'isChapter(item) != null'class="dropdown-item" v-on:click = "selectChapter(isChapter(item))">{{ isChapter(item)  }}</a>
 				</div>
@@ -84,9 +80,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>
-					창세기 <small>11장</small>
-				</h1>
+				<h1>{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h1>
 			</div>
 		</div>
 	</div>
@@ -175,9 +169,9 @@ var vm1 = new Vue({
 			selectChapter : function(selected){
 				this.chapter = selected;
 			}
-				
 		}
 	});
+		
 	function search(){
 		$.ajax({
 			url:'/wbProject/getBible.do',

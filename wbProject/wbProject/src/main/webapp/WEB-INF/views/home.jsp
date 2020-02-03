@@ -35,65 +35,63 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="text-center">
-				h3. Lorem ipsum dolor sit amet.
+				Holy Bible
 			</h3>
 		</div>
 	</div>
+
 	<div class="row">
-		<div class="col-md-5">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="dropdown">
-						 
-						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  v-model="type">
-							구약
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							 <a class="dropdown-item disabled" href="#">구약</a> <a class="dropdown-item" href="#">신약</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="dropdown">
-						 
-						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-							Action
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							 <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<div class="dropdown">
-						 
-						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-							Action
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							 <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3">
-					 
-					<button type="button" class="btn btn-md btn-primary">
-						Button
-					</button>
+		<div class="col-md-3">
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+				구약
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					 <a class="dropdown-item" href="#">구약</a> <a class="dropdown-item" href="#">신약</a>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-3">
+			<div class="dropdown">
+				 
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+					창세기
+				</button>
+				<div class="dropdown-menu" id ='Gospel' aria-labelledby="dropdownMenuButton">
+					 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" href="#">{{ isGospel(item)  }}</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="dropdown">
+				 
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+					1
+				</button>
+				<div class="dropdown-menu" id = 'Chapter' aria-labelledby="dropdownMenuButton">
+					 <a v-for ="item in items" v-show = 'isChapter(item) != null'class="dropdown-item disabled" href="#">{{ isChapter(item)  }}</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			 
+			<button type="button" v-on:click="search" class="btn btn-md btn-primary">
+				Button
+			</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
 			<div class="page-header">
 				<h1>
-					LayoutIt! <small>Interface Builder for Bootstrap</small>
+					창세기 <small>11장</small>
 				</h1>
 			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-1">
-			 <span class="badge badge-default">Label</span>
+			 <span v-on:click = 'before'class="badge badge-default">이전</span>
 		</div>
 		<div class="col-md-10">
 			<p>
@@ -101,54 +99,10 @@
 			</p>
 		</div>
 		<div class="col-md-1">
-			 <span class="badge badge-default">Label</span>
+			 <span v-on:click="next" class="badge badge-default">다음</span>
 		</div>
 	</div>
 	</div>
-	
-	
-	
-	
-	
-		<!-- TYPE 신약/구약 -->
-		<div id='test1'>
-				<div id='menu'>
-					<select v-model="type">
-						<option value="BC">구약</option>
-					    <option value="AD">신약</option>
-					</select>
-					<!-- GOSPEL 복음서 -->
-					<select id='Gospel' v-model="gospel">
-						<option v-for="item in items" v-show ='isGospel(item) != null'>
-							{{ isGospel(item) }}
-						</option>
-					</select>
-					<!-- CHAPTER 장 -->	  
-					<select id='Chapter' v-model="chapter"> <!-- v-on:change="isVerse()"> --> 
-						<option v-for="item in items" v-show ='isChapter(item) != null'>
-					 		{{ isChapter(item) }}
-						</option>
-					</select>
-					<!-- VERSE 절 -->	  
-					<!-- 
-					<select id='Verse' v-model = "verse">
-						<option v-for="i in verseLength" v-on:change="selVerse()" >
-							{{i}}
-						</option>
-					</select>
-					 -->
-					<button v-on:click="search">찾기</button>
-				 </div>
-				<div>
-				<div style="width:11%;float:left" v-on:click="before">이전</div>
-				<div style="width:78%;float:left">
-					<div v-for="verse in verses"> {{ isContents(verse) }}</div>
-				</div>
-				<div style="width:11%;float:left" v-on:click="next">다음</div>
-				</div>
-			
-			
-		</div>
   </body>
 </html>
 <script>
@@ -156,7 +110,7 @@ var totalList=${totalList};
 var vm1 = new Vue({
 	 el: '#test1',
 	  data: {
-	    type: '',
+	    type: 'BC',
 	    items:totalList,
 	    chapter:'',
 	    verseLength:'',
@@ -165,6 +119,7 @@ var vm1 = new Vue({
 	  },
 		methods:{
 			isGospel : function(item){
+				//console.log(item);
 				if('' == this.type){
 					return null;
 				}else if(item.CHAPTER == '1' && item.TYPE == this.type){

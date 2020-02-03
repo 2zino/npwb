@@ -46,8 +46,9 @@
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
 				구약
 				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-					 <a class="dropdown-item" href="#">구약</a> <a class="dropdown-item" href="#">신약</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+					 <a  class="dropdown-item" value = 'BC' v-on:click = select("BC")>구약</a> 
+					 <a class="dropdown-item" vaule = 'AD' v-on:click =select("AD")>신약</a>
 				</div>
 			</div>
 		</div>
@@ -57,8 +58,8 @@
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
 					창세기
 				</button>
-				<div class="dropdown-menu" id ='Gospel' aria-labelledby="dropdownMenuButton">
-					 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" href="#">{{ isGospel(item)  }}</a>
+				<div class="dropdown-menu" id ='Gospel' aria-labelledby="dropdownMenuButton" >
+					 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" v-on:click = "selectGospel(isGospel(item))">{{ isGospel(item)  }}</a>
 				</div>
 			</div>
 		</div>
@@ -69,7 +70,7 @@
 					1
 				</button>
 				<div class="dropdown-menu" id = 'Chapter' aria-labelledby="dropdownMenuButton">
-					 <a v-for ="item in items" v-show = 'isChapter(item) != null'class="dropdown-item disabled" href="#">{{ isChapter(item)  }}</a>
+					 <a v-for ="item in items" v-show = 'isChapter(item) != null'class="dropdown-item" v-on:click = "selectChapter(isChapter(item))">{{ isChapter(item)  }}</a>
 				</div>
 			</div>
 		</div>
@@ -94,8 +95,8 @@
 			 <span v-on:click = 'before'class="badge badge-default">이전</span>
 		</div>
 		<div class="col-md-10">
-			<p>
-				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+			<p v-for = "verse in verses" >
+			{{ isContents(verse) }}
 			</p>
 		</div>
 		<div class="col-md-1">
@@ -110,7 +111,7 @@ var totalList=${totalList};
 var vm1 = new Vue({
 	 el: '#test1',
 	  data: {
-	    type: 'BC',
+	    type: '',
 	    items:totalList,
 	    chapter:'',
 	    verseLength:'',
@@ -164,7 +165,17 @@ var vm1 = new Vue({
 			next : function(){
 				this.chapter=Number(this.chapter)+1;
 				search();
+			},
+			select : function(selected){
+				this.type = selected;
+			},
+			selectGospel : function(selected){
+				this.gospel = selected;
+			},
+			selectChapter : function(selected){
+				this.chapter = selected;
 			}
+				
 		}
 	});
 	function search(){

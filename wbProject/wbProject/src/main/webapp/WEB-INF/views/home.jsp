@@ -5,18 +5,111 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.*" %>
 <%@ page import="javax.naming.*" %>
-<script src="js/vue.js"></script>
 
 
 <html>
 	<head>
-		
-		<title>DB Test</title>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	    <title>Welcome to WB BIBLE!</title>
+	<!-- 굳이 . . 
+	    <meta name="description" content="Source code generated using layoutit.com">
+	    <meta name="author" content="LayoutIt!">
+	 -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link href="css/style.css" rel="stylesheet">
+
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+    	<script src="js/scripts.js"></script>
 	</head>
 	
 	<body>
+	
+	
+    <div class="container-fluid" id='test1'>
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="text-center">
+				h3. Lorem ipsum dolor sit amet.
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-5">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="dropdown">
+						 
+						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"  v-model="type">
+							구약
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							 <a class="dropdown-item disabled" href="#">구약</a> <a class="dropdown-item" href="#">신약</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="dropdown">
+						 
+						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+							Action
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							 <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="dropdown">
+						 
+						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+							Action
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							 <a class="dropdown-item disabled" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					 
+					<button type="button" class="btn btn-md btn-primary">
+						Button
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="page-header">
+				<h1>
+					LayoutIt! <small>Interface Builder for Bootstrap</small>
+				</h1>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1">
+			 <span class="badge badge-default">Label</span>
+		</div>
+		<div class="col-md-10">
+			<p>
+				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+			</p>
+		</div>
+		<div class="col-md-1">
+			 <span class="badge badge-default">Label</span>
+		</div>
+	</div>
+	</div>
+	
+	
+	
+	
+	
 		<!-- TYPE 신약/구약 -->
 		<div id='test1'>
 				<div id='menu'>

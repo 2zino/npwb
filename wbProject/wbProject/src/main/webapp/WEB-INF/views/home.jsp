@@ -11,16 +11,10 @@
 	<head>
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	    <meta name="viewport" content="width=device-width, initial-scale=1">	
 	    <title>Welcome to WB BIBLE!</title>
-	<!-- 굳이 . . 
-	    <meta name="description" content="Source code generated using layoutit.com">
-	    <meta name="author" content="LayoutIt!">
-	 -->
 	    <link href="css/bootstrap.min.css" rel="stylesheet">
 	    <link href="css/style.css" rel="stylesheet">
-
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	    <script src="js/jquery.min.js"></script>
@@ -41,7 +35,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-3">
 			<div class="dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>구약</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
@@ -50,7 +44,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-3">
 			<div class="dropdown">
 				 
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
@@ -61,7 +55,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-3">
 			<div class="dropdown">
 				 
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">1</button>
@@ -70,10 +64,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
-			 
+		<div class="col-3">	 
 			<button type="button" v-on:click="search" class="btn btn-md btn-primary">
-				Button
+				<span>찾기</span>
 			</button>
 		</div>
 	</div>
@@ -85,7 +78,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-1">
+		<div class="col-1">
 			 <span v-on:click = 'before'class="badge badge-default">이전</span>
 		</div>
 		<div class="col-md-10">

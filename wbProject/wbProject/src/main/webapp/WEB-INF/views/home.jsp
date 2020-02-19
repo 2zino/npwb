@@ -38,11 +38,11 @@
 		<div class="col-3">
 			<div class="dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
-					<span v-if = "type ==''">구약</span><span v-else>{{ type }}</span>
+					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
 					 <a  class="dropdown-item" value = 'BC' v-on:click = select("BC")>구약</a> 
-					 <a class="dropdown-item" vaule = 'AD' v-on:click =select("AD")>신약</a>
+					 <a class="dropdown-item" vaule = 'AD' v-on:click = select("AD")>신약</a>
 				</div>
 			</div>
 		</div>
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row2">
 		<div class="col-1">
 			 <span v-on:click = 'before'class="badge badge-default">이전</span>
 		</div>

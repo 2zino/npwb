@@ -12,7 +12,7 @@
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">	
-	    <title>Welcome to WB BIBLE!</title>
+	    <title>Welcome to LIGHT BIBLE!</title>
 	    <link href="css/bootstrap.min.css" rel="stylesheet">
 	    <link href="css/style.css" rel="stylesheet">
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -29,7 +29,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<h3 class="text-center">
-				Holy Bible
+				Light Bible
 			</h3>
 		</div>
 	</div>
@@ -37,7 +37,9 @@
 	<div class="row">
 		<div class="col-3">
 			<div class="dropdown">
-				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>구약</button>
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
+					<span v-if = "type ==''">구약</span><span v-else>{{ type }}</span>
+				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
 					 <a  class="dropdown-item" value = 'BC' v-on:click = select("BC")>구약</a> 
 					 <a class="dropdown-item" vaule = 'AD' v-on:click =select("AD")>신약</a>
@@ -48,7 +50,7 @@
 			<div class="dropdown">
 				 
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-					<span id = "a">창세기</span>
+					<span v-if = "gospel ==''">창세기</span><span v-else>{{ gospel }}</span>
 				</button>
 				<div class="dropdown-menu" id ='Gospel' aria-labelledby="dropdownMenuButton" >
 					 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" v-on:click = "selectGospel(isGospel(item))">{{ isGospel(item)  }}</a>
@@ -58,7 +60,9 @@
 		<div class="col-3">
 			<div class="dropdown">
 				 
-				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">1</button>
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+					<span v-if = "chapter ==''">1</span><span v-else>{{ chapter }}</span>
+				</button>
 				<div class="dropdown-menu" id = 'Chapter' aria-labelledby="dropdownMenuButton">
 					 <a v-for ="item in items" v-show = 'isChapter(item) != null'class="dropdown-item" v-on:click = "selectChapter(isChapter(item))">{{ isChapter(item)  }}</a>
 				</div>

@@ -27,10 +27,16 @@
 	
     <div class="container-fluid" id='test1'>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-10">
 			<h3 class="text-center">
 				Light Bible
 			</h3>
+		</div>
+		<div class="col-1">
+			 <span v-on:click="fontSize += 0.25" class="badge badge-default">+</span>
+		</div>
+		<div class="col-1">
+			 <span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-default">-</span>
 		</div>
 	</div>
 
@@ -85,7 +91,7 @@
 		<div class="col-1">
 			 <span v-on:click = 'before'class="badge badge-default">이전</span>
 		</div>
-		<div class="col-md-10">
+		<div v-bind:style="{ fontSize: fontSize + 'rem' }" class="col-md-10">
 			<p v-for = "verse in verses" >
 			{{ isContents(verse) }}
 			</p>
@@ -107,7 +113,8 @@ var vm1 = new Vue({
 	    chapter:'',
 	    verseLength:'',
 	    gospel:'',
-	    verses:''
+	    verses:'',
+	    fontSize: 1
 	  },
 		methods:{
 			isGospel : function(item){
@@ -165,6 +172,12 @@ var vm1 = new Vue({
 			},
 			selectChapter : function(selected){
 				this.chapter = selected;
+			},
+			plus : function(){
+
+			},
+			minus :function(){
+				
 			}
 		}
 	});

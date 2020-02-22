@@ -25,23 +25,16 @@
 	<body>
 	
 	
-    <div class="container-fluid" id='test1'>
+    <div class="container-fluid" id='bible'>
 	<div class="row">
-		<div class="col-md-10">
-			<h3 class="text-center">
-				Light Bible
-			</h3>
-		</div>
-		<div class="col-1">
-			 <span v-on:click="fontSize += 0.25" class="badge badge-default">+</span>
-		</div>
-		<div class="col-1">
-			 <span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-default">-</span>
-		</div>
+		<button>
+			<div class="col-md-12">
+					<span class="text-center">Light Bible</span>
+			</div>
+		</button>
 	</div>
-
 	<div class="row">
-		<div class="col-3">
+		<div class="col-4">
 			<div class="dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
 					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
@@ -52,7 +45,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-3">
+		<div class="col-4">
 			<div class="dropdown">
 				 
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
@@ -63,9 +56,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-3">
+		<div class="col-4">
 			<div class="dropdown">
-				 
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
 					<span v-if = "chapter ==''">1</span><span v-else>{{ chapter }}</span>
 				</button>
@@ -74,11 +66,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-3">	 
+<!--  		<div class="col-3">	 
 			<button type="button" v-on:click="search" class="btn btn-md btn-primary">
 				<span>찾기</span>
 			</button>
 		</div>
+-->
 	</div>
 	<div class="row">
 		<div class="col-md-12">
@@ -87,6 +80,7 @@
 			</div>
 		</div>
 	</div>
+	<hr class = 'line'> <!-- line추가 -->
 	<div class="row2">
 		<div class="col-1">
 			 <span v-on:click = 'before'class="badge badge-default">이전</span>
@@ -100,13 +94,21 @@
 			 <span v-on:click="next" class="badge badge-default">다음</span>
 		</div>
 	</div>
+	<div>
+		<div class="col-md-auto">
+			 <span v-on:click="fontSize += 0.25" class="badge badge-default">+</span>
+		</div>
+		<div class="col-md-auto">
+			 <span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-default">-</span>
+		</div>
+	</div>
 	</div>
   </body>
 </html>
 <script>
 var totalList=${totalList};
 var vm1 = new Vue({
-	 el: '#test1',
+	 el: '#bible',
 	  data: {
 	    type: '',
 	    items:totalList,
@@ -114,7 +116,9 @@ var vm1 = new Vue({
 	    verseLength:'',
 	    gospel:'',
 	    verses:'',
-	    fontSize: 1
+	    fontSize: 1,
+	    chapterSize: ''
+	    
 	  },
 		methods:{
 			isGospel : function(item){
@@ -130,6 +134,7 @@ var vm1 = new Vue({
 				if(''==this.type || ''==this.gospel){
 					return null;
 				}else if(item.TYPE == this.type && item.GOSPEL == this.gospel){
+					this.chapterSize = item.CHAPTER;
 					return item.CHAPTER;
 				}
 				return null;
@@ -156,13 +161,16 @@ var vm1 = new Vue({
 				search();
 			},
 			before : function(){
-				this.chapter=Number(this.chapter)-1;
-
-				search();
+				if(this.chapter>1){
+					this.chapter=Number(this.chapter)-1;
+					search();
+				}
 			},
 			next : function(){
-				this.chapter=Number(this.chapter)+1;
-				search();
+				if(this.chapterSize > this.chapter){
+					this.chapter=Number(this.chapter)+1;
+					search();
+				}
 			},
 			select : function(selected){
 				this.type = selected;
@@ -172,12 +180,7 @@ var vm1 = new Vue({
 			},
 			selectChapter : function(selected){
 				this.chapter = selected;
-			},
-			plus : function(){
-
-			},
-			minus :function(){
-				
+				search();
 			}
 		}
 	});

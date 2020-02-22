@@ -90,6 +90,7 @@
 			 <span v-on:click="next" class="badge badge-default">다음</span>
 		</div>
 	</div>
+	<hr class = 'line'> <!-- line추가 -->
 	<div sytle ="text-align : left">
 		<div class="col-md-auto">
 			<span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-default">-</span>글자크기조절<span v-on:click="fontSize += 0.25" class="badge badge-default">+</span>

@@ -26,13 +26,9 @@
 	
 	
     <div class="container-fluid" id='bible'>
-	<div class="row">
-		<button>
-			<div class="col-md-12">
-					<span class="text-center">Light Bible</span>
-			</div>
-		</button>
-	</div>
+		<div class="col-md-12" style = "text-align: center;">
+			<h3><a href="http://106.10.53.202:8080/wbProject/main.do">LIGHT BIBLE</a></h3>
+		</div>
 	<div class="row">
 		<div class="col-4">
 			<div class="dropdown">
@@ -76,7 +72,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h1>
+				<h1 v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h1>
 			</div>
 		</div>
 	</div>
@@ -94,12 +90,9 @@
 			 <span v-on:click="next" class="badge badge-default">다음</span>
 		</div>
 	</div>
-	<div>
+	<div sytle ="text-align : left">
 		<div class="col-md-auto">
-			 <span v-on:click="fontSize += 0.25" class="badge badge-default">+</span>
-		</div>
-		<div class="col-md-auto">
-			 <span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-default">-</span>
+			<span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-default">-</span>글자크기조절<span v-on:click="fontSize += 0.25" class="badge badge-default">+</span>
 		</div>
 	</div>
 	</div>
@@ -113,7 +106,6 @@ var vm1 = new Vue({
 	    type: '',
 	    items:totalList,
 	    chapter:'',
-	    verseLength:'',
 	    gospel:'',
 	    verses:'',
 	    fontSize: 1,
@@ -174,6 +166,8 @@ var vm1 = new Vue({
 			},
 			select : function(selected){
 				this.type = selected;
+				this.gospel = '';
+				this.chapter = '';
 			},
 			selectGospel : function(selected){
 				this.gospel = selected;

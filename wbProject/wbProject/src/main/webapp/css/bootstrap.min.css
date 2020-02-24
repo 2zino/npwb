@@ -347,7 +347,7 @@ blockquote {
 }
 
 a {
-	color: #0275d8;
+	color: #266855;
 	text-decoration: none
 }
 
@@ -2643,8 +2643,7 @@ select.form-control:focus::-ms-value {
 	user-select: none;
 	border: 1px solid transparent;
 	padding: .5rem 1rem;
-	font-size: 1rem;
-	border-radius: .25rem;
+	font-size: 0.75rem;
 	-webkit-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out
@@ -2675,13 +2674,13 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-primary {
 	color: #fff;
-	background-color: #0275d8;
-	border-color: #0275d8
+	background-color: #266855;
+	border-color: #266855
 }
 
 .btn-primary:hover {
 	color: #fff;
-	background-color: #025aa5;
+	background-color: #266855;
 	border-color: #01549b
 }
 
@@ -2691,14 +2690,14 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-primary.disabled, .btn-primary:disabled {
-	background-color: #0275d8;
-	border-color: #0275d8
+	background-color: #266855;
+	border-color: #266855
 }
 
 .btn-primary.active, .btn-primary:active, .show>.btn-primary.dropdown-toggle
 	{
 	color: #fff;
-	background-color: #025aa5;
+	background-color: #266855;
 	background-image: none;
 	border-color: #01549b
 }
@@ -2853,16 +2852,16 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-outline-primary {
-	color: #0275d8;
+	color: #266855;
 	background-image: none;
 	background-color: transparent;
-	border-color: #0275d8
+	border-color: #266855
 }
 
 .btn-outline-primary:hover {
 	color: #fff;
-	background-color: #0275d8;
-	border-color: #0275d8
+	background-color: #266855;
+	border-color: #266855
 }
 
 .btn-outline-primary.focus, .btn-outline-primary:focus {
@@ -2871,15 +2870,15 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-	color: #0275d8;
+	color: #266855;
 	background-color: transparent
 }
 
 .btn-outline-primary.active, .btn-outline-primary:active, .show>.btn-outline-primary.dropdown-toggle
 	{
 	color: #fff;
-	background-color: #0275d8;
-	border-color: #0275d8
+	background-color: #266855;
+	border-color: #266855
 }
 
 .btn-outline-secondary {
@@ -3034,7 +3033,7 @@ a.btn.disabled, fieldset[disabled] a.btn {
 
 .btn-link {
 	font-weight: 400;
-	color: #0275d8;
+	color: #266855;
 	border-radius: 0
 }
 
@@ -3161,7 +3160,7 @@ tbody.collapse.show {
 	min-width: 10rem;
 	padding: .5rem 0;
 	margin: .125rem 0 0;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	color: #292b2c;
 	text-align: left;
 	list-style: none;
@@ -3169,7 +3168,6 @@ tbody.collapse.show {
 	-webkit-background-clip: padding-box;
 	background-clip: padding-box;
 	border: 1px solid rgba(0, 0, 0, .15);
-	border-radius: .25rem;
 	overflow-y : auto;
 	max-height : 20rem;
 }
@@ -3203,7 +3201,7 @@ tbody.collapse.show {
 .dropdown-item.active, .dropdown-item:active {
 	color: #fff;
 	text-decoration: none;
-	background-color: #0275d8
+	background-color: #266855
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -3611,12 +3609,12 @@ tbody.collapse.show {
 
 .custom-control-input:checked ~.custom-control-indicator {
 	color: #fff;
-	background-color: #0275d8
+	background-color: #266855
 }
 
 .custom-control-input:focus ~.custom-control-indicator {
-	-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #0275d8;
-	box-shadow: 0 0 0 1px #fff, 0 0 0 3px #0275d8
+	-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 3px #266855;
+	box-shadow: 0 0 0 1px #fff, 0 0 0 3px #266855
 }
 
 .custom-control-input:active ~.custom-control-indicator {
@@ -3665,7 +3663,7 @@ tbody.collapse.show {
 
 .custom-checkbox .custom-control-input:indeterminate ~.custom-control-indicator
 	{
-	background-color: #0275d8;
+	background-color: #266855;
 	background-image:
 		url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3E%3Cpath stroke='%23fff' d='M0 2h4'/%3E%3C/svg%3E")
 }
@@ -3873,7 +3871,7 @@ tbody.collapse.show {
 .nav-pills .nav-item.show .nav-link, .nav-pills .nav-link.active {
 	color: #fff;
 	cursor: default;
-	background-color: #0275d8
+	background-color: #266855
 }
 
 .nav-fill .nav-item {
@@ -4476,8 +4474,8 @@ tbody.collapse.show {
 }
 
 .card-primary {
-	background-color: #0275d8;
-	border-color: #0275d8
+	background-color: #266855;
+	border-color: #266855
 }
 
 .card-primary .card-footer, .card-primary .card-header {
@@ -4522,7 +4520,7 @@ tbody.collapse.show {
 
 .card-outline-primary {
 	background-color: transparent;
-	border-color: #0275d8
+	border-color: #266855
 }
 
 .card-outline-secondary {
@@ -4763,8 +4761,8 @@ tbody.collapse.show {
 .page-item.active .page-link {
 	z-index: 2;
 	color: #fff;
-	background-color: #0275d8;
-	border-color: #0275d8
+	background-color: #266855;
+	border-color: #266855
 }
 
 .page-item.disabled .page-link {
@@ -4781,7 +4779,7 @@ tbody.collapse.show {
 	padding: .5rem .75rem;
 	margin-left: -1px;
 	line-height: 1.25;
-	color: #0275d8;
+	color: #266855;
 	background-color: #fff;
 	border: 1px solid #ddd
 }
@@ -4866,11 +4864,11 @@ a.badge:focus, a.badge:hover {
 }
 
 .badge-primary {
-	background-color: #0275d8
+	background-color: #266855
 }
 
 .badge-primary[href]:focus, .badge-primary[href]:hover {
-	background-color: #025aa5
+	background-color: #266855
 }
 
 .badge-success {
@@ -5053,7 +5051,7 @@ to {
 .progress-bar {
 	height: 1rem;
 	color: #fff;
-	background-color: #0275d8
+	background-color: #266855
 }
 
 .progress-bar-striped {
@@ -5182,8 +5180,8 @@ to {
 .list-group-item.active {
 	z-index: 2;
 	color: #fff;
-	background-color: #0275d8;
-	border-color: #0275d8
+	background-color: #266855;
+	border-color: #266855
 }
 
 .list-group-item.active .list-group-item-heading, .list-group-item.active .list-group-item-heading>.small,
@@ -6076,11 +6074,11 @@ supports ((-webkit-transform:translate3d (0, 0,0)) or (transform:translate3d
 }
 
 .bg-primary {
-	background-color: #0275d8 !important
+	background-color: #266855 !important
 }
 
 a.bg-primary:focus, a.bg-primary:hover {
-	background-color: #025aa5 !important
+	background-color: #266855 !important
 }
 
 .bg-success {
@@ -9162,11 +9160,11 @@ a.text-muted:focus, a.text-muted:hover {
 }
 
 .text-primary {
-	color: #0275d8 !important
+	color: #266855 !important
 }
 
 a.text-primary:focus, a.text-primary:hover {
-	color: #025aa5 !important
+	color: #266855 !important
 }
 
 .text-success {

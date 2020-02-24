@@ -72,7 +72,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1 v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h1>
+				<h2 v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
 			</div>
 		</div>
 	</div>
@@ -172,6 +172,10 @@ var vm1 = new Vue({
 			},
 			selectGospel : function(selected){
 				this.gospel = selected;
+				if(this.chapter !='' ){
+					this.chapter = '';
+					}
+				
 			},
 			selectChapter : function(selected){
 				this.chapter = selected;

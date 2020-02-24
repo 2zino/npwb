@@ -72,7 +72,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2 v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
+				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem" v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
 			</div>
 		</div>
 	</div>

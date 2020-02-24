@@ -529,8 +529,8 @@ output {
 }
 
 hr {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
 	border: 0;
 	border-top: 1px solid rgba(0, 0, 0, .1)
 }
@@ -9048,7 +9048,11 @@ a.bg-inverse:focus, a.bg-inverse:hover {
 		margin-bottom: auto !important
 	}
 }
-
+.text-num {
+	font-size : 0.65rem;
+	color : #BDBDBD;
+	vertical-align : top
+}
 .text-justify {
 	text-align: justify !important
 }

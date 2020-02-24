@@ -81,9 +81,9 @@
 		<div class="col-1">
 			 <span v-on:click = 'before'class="badge badge-default">이전</span>
 		</div>
-		<div v-bind:style="{ fontSize: fontSize + 'rem' }" class="col-md-10">
-			<p v-for = "verse in verses" >
-			{{ isContents(verse) }}
+		<div class="col-md-10">
+			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem' }">
+				<span v-html = 'isContents(verse)' ></span>
 			</p>
 		</div>
 		<div class="col-md-1">
@@ -134,7 +134,7 @@ var vm1 = new Vue({
 			},
 			isContents :function(verse){
 					var contents ="";
-					contents = verse.VERSE+"."+ verse.CONTENTS+" "
+					contents = "<span class='text-num'>"+verse.VERSE+'</span>'+" "+ verse.CONTENTS+" "
 					return contents;
 			},
 			/*

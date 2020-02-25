@@ -26,11 +26,11 @@
 	
 	
     <div class="container-fluid" id='bible'>
-		<div class="col-md-12" style = "text-align: center;">
-			<h3><a href="http://106.10.53.202:8080/wbProject/main.do">LIGHT BIBLE</a></h3>
-		</div>
 	<div class="row">
-		<div class="col-4">
+		<div class="col-4" style = "text-align: center;">
+			<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
+		</div>
+		<div class="col-8" style = "text-align: center; vertical-align: middle;display: table-cell;	">
 			<div class="dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
 					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
@@ -40,9 +40,7 @@
 					 <a class="dropdown-item" vaule = 'AD' v-on:click = select("AD")>신약</a>
 				</div>
 			</div>
-		</div>
-		<div class="col-4">
-			<div class="dropdown">
+			<div class="dropdown" style="float:left;">
 				 
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
 					<span v-if = "gospel ==''">창세기</span><span v-else>{{ gospel }}</span>
@@ -51,9 +49,7 @@
 					 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" v-on:click = "selectGospel(isGospel(item))">{{ isGospel(item)  }}</a>
 				</div>
 			</div>
-		</div>
-		<div class="col-4">
-			<div class="dropdown">
+			<div class="dropdown" style="float:left;">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
 					<span v-if = "chapter ==''">1</span><span v-else>{{ chapter }}</span>
 				</button>

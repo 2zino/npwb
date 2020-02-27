@@ -27,10 +27,10 @@
 	
     <div class="container-fluid" id='bible'>
 	<div class="row">
-		<div class="col-4" style = "text-align: center;">
+		<div class="col-4" style = "text-align: center; vertical-align:text-bottom; padding-top: 0.3rem;">
 			<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
 		</div>
-		<div class="col-8" style = "text-align: center; vertical-align: middle;display: table-cell;	">
+		<div class="col-8" style = "text-align: center; vertical-align: middle;display: table-cell; padding-top: 0.3rem;">
 			<div class="dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
 					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
@@ -74,22 +74,17 @@
 	</div>
 	<hr class = 'line'> <!-- line추가 -->
 	<div class="row2">
-		<div class="col-1">
-			 <span v-on:click = 'before'class="badge badge-default">이전</span>
-		</div>
 		<div class="col-md-10">
-			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem' }">
+			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
 				<span v-html = 'isContents(verse)' ></span>
 			</p>
-		</div>
-		<div class="col-md-1">
-			 <span v-on:click="next" class="badge badge-default">다음</span>
 		</div>
 	</div>
 	<hr class = 'line'> <!-- line추가 -->
 	<div sytle ="text-align : left">
 		<div class="col-md-auto">
-			<span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-default">-</span>글자크기조절<span v-on:click="fontSize += 0.25" class="badge badge-default">+</span>
+			<span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-pill"> - </span><img src="./img/text.jpg" width="20rem"><span v-on:click="fontSize += 0.25" class="badge badge-pill"> + </span>
+			<span v-on:click = 'before'class="badge badge-pill"> < </span><img src="./img/book.jpg" width="20rem"><span v-on:click="next" class="badge badge-pill"> > </span>
 		</div>
 	</div>
 	</div>

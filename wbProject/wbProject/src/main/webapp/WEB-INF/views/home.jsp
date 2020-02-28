@@ -95,10 +95,10 @@ var totalList=${totalList};
 var vm1 = new Vue({
 	 el: '#bible',
 	  data: {
-	    type: '',
+	    type: 'BC',
 	    items:totalList,
 	    chapter:'',
-	    gospel:'',
+	    gospel: '창세기',
 	    verses:'',
 	    fontSize: 1,
 	    chapterSize: ''

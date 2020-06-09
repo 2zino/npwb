@@ -114,7 +114,6 @@ var vm1 = new Vue({
 	    verses:'',
 	    fontSize: 1,
 	    chapterSize: ''
-	    
 	  },
 		methods:{
 			isGospel : function(item){
@@ -160,12 +159,14 @@ var vm1 = new Vue({
 				if(this.chapter>1){
 					this.chapter=Number(this.chapter)-1;
 					search();
+					$('.row2').scrollTop(0);
 				}
 			},
 			next : function(){
 				if(this.chapterSize > this.chapter){
 					this.chapter=Number(this.chapter)+1;
 					search();
+					$('.row2').scrollTop(0);
 				}
 			},
 			select : function(selected){

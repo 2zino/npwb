@@ -77,7 +77,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem" v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
+				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: center;" v-if ="chapter ==''">WELCOME</h2>
+				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: center;" v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
 			</div>
 		</div>
 	</div>
@@ -90,10 +91,12 @@
 		</div>
 	</div>
 	<hr class = 'line'> <!-- line추가 -->
-	<div sytle ="text-align : left">
+	<div>
 		<div class="col-md-auto">
+		<center>
 			<span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-pill"> - </span><img src="./img/text.jpg" width="20rem"><span v-on:click="fontSize += 0.25" class="badge badge-pill"> + </span>
 			<span v-on:click = 'before'class="badge badge-pill"> < </span><img src="./img/book.jpg" width="20rem"><span v-on:click="next" class="badge badge-pill"> > </span>
+		</center>
 		</div>
 	</div>
 	</div>

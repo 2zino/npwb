@@ -16,6 +16,14 @@
   gtag('config', 'UA-168903909-1');
 </script>
 
+<script type="text/javascript">
+	//주소창 숨기기
+	window.onload = function() {
+	    setTimeout(function() {
+	        window.scrollTo(0, 1);}, 100);
+	};
+</script>
+
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -83,13 +91,11 @@
 		</div>
 	</div>
 	<hr class = 'line'> <!-- line추가 -->
-	<div class="row2">
 		<div class="col-md-10">
 			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
 				<span v-html = 'isContents(verse)' ></span>
 			</p>
 		</div>
-	</div>
 	<hr class = 'line'> <!-- line추가 -->
 	<div>
 		<div class="col-md-auto">
@@ -159,14 +165,14 @@ var vm1 = new Vue({
 				if(this.chapter>1){
 					this.chapter=Number(this.chapter)-1;
 					search();
-					$('.row2').scrollTop(0);
+					$('html, body').stop().animate({scrollTop: 0}, 1000);
 				}
 			},
 			next : function(){
 				if(this.chapterSize > this.chapter){
 					this.chapter=Number(this.chapter)+1;
 					search();
-					$('.row2').scrollTop(0);
+					$('html, body').stop().animate({scrollTop: 0}, 1000);
 				}
 			},
 			select : function(selected){

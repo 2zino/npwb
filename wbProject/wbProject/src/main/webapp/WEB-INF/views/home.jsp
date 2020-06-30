@@ -37,6 +37,34 @@
 	    <script src="js/jquery.min.js"></script>
 	    <script src="js/bootstrap.min.js"></script>
     	<script src="js/scripts.js"></script>
+    	
+    	<style>
+			@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+			.nn-gothic4{
+				font-family: 'Nanum Gothic', sans-serif;
+				font-weight: 400;
+			}
+			.nn-gothic7{
+				font-family: 'Nanum Gothic', sans-serif;
+				font-weight: 700;
+			}
+			.nn-gothic8{
+				font-family: 'Nanum Gothic', sans-serif;
+				font-weight: 800;
+			}
+			.nn-myeongjo4{
+				font-family: 'Nanum Myeongjo', serif;
+				font-weight: 400;			
+			}
+			.nn-myeongjo7{
+				font-family: 'Nanum Myeongjo', serif;
+				font-weight: 700;			
+			}
+			.nn-myeongjo8{
+				font-family: 'Nanum Myeongjo', serif;
+				font-weight: 800;			
+			}
+		</style>
 	</head>
 	
 	<body>
@@ -85,15 +113,15 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left;" v-if ="chapter ==''">WELCOME</h2>
-				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left;" v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
+				<p class='nn-gothic8' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.4em" v-if ="chapter ==''">WELCOME</p>
+				<p class='nn-gothic8' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.4em" v-if ="chapter != ''">{{ gospel }} <small class='nn-gothic4' v-if ="chapter != ''">{{ chapter }}장</small></p>
 			</div>
 		</div>
 	</div>
 	<hr class = 'line'> <!-- line추가 -->
 		<div class="col-md-10">
 			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
-				<span v-html = 'isContents(verse)' ></span>
+				<span style='font-size:0.9em;' class='nn-myeongjo4' v-html = 'isContents(verse)' ></span>
 			</p>
 		</div>
 	<hr class = 'line'> <!-- line추가 -->

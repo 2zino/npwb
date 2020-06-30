@@ -113,16 +113,18 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<p class='nn-gothic8' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.4em" v-if ="chapter ==''">WELCOME</p>
-				<p class='nn-gothic8' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.4em" v-if ="chapter != ''">{{ gospel }} <small class='nn-gothic4' v-if ="chapter != ''">{{ chapter }}장</small></p>
+				<p class='nn-gothic7' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.8em" v-if ="chapter ==''">WELCOME</p>
+				<p class='nn-gothic7' style ="letter-spacing: 2px; margin-left: 0.3rem; margin-bottom: 0rem; text-align: left; font-size:1.8em" v-if ="chapter != ''">{{ gospel }} <small class='nn-gothic4' v-if ="chapter != ''">{{ chapter }}장</small></p>
 			</div>
 		</div>
 	</div>
 	<hr class = 'line'> <!-- line추가 -->
-		<div class="col-md-10">
-			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
-				<span style='font-size:0.9em;' class='nn-myeongjo4' v-html = 'isContents(verse)' ></span>
-			</p>
+		<div class="row2">
+			<div class="col-md-10">
+				<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
+					<span style='font-size:0.9em;' class='nn-myeongjo4' v-html = 'isContents(verse)' ></span>
+				</p>
+			</div>
 		</div>
 	<hr class = 'line'> <!-- line추가 -->
 	<div>

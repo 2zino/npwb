@@ -119,12 +119,10 @@
 		</div>
 	</div>
 	<hr class = 'line'> <!-- line추가 -->
-		<div class="row2">
-			<div class="col-md-10">
-				<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
-					<span style='font-size:0.9em;' class='nn-myeongjo4' v-html = 'isContents(verse)' ></span>
-				</p>
-			</div>
+		<div class="col-md-10">
+			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
+				<span style='font-size:0.9em;' class='nn-myeongjo4' v-html = 'isContents(verse)' ></span>
+			</p>
 		</div>
 	<hr class = 'line'> <!-- line추가 -->
 	<div>

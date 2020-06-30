@@ -43,11 +43,11 @@
 	
 	
     <div class="container-fluid" id='bible'>
-	<div class="row">
-		<div class="col-4" style = "text-align: center; vertical-align:text-bottom; padding-top: 0.3rem;">
+	<div class="row" style ="align :center; background : #266855;">
+		<!--  <div class="col-4" style = "text-align: center; vertical-align:text-bottom; padding-top: 0.3rem;">
 			<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
-		</div>
-		<div class="col-8" style = "text-align: center; vertical-align: middle;display: table-cell; padding-top: 0.3rem;">
+		</div>-->
+		<div class="col-12" style = "text-align: center; vertical-align: middle;display: table-cell; padding-top: 0.3rem;">
 			<div class="dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
 					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
@@ -85,8 +85,8 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: center;" v-if ="chapter ==''">WELCOME</h2>
-				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: center;" v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
+				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left;" v-if ="chapter ==''">WELCOME</h2>
+				<h2 style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left;" v-if ="chapter != ''">{{ gospel }} <small v-if ="chapter != ''">{{ chapter }}장</small></h2>
 			</div>
 		</div>
 	</div>

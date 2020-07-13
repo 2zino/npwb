@@ -125,7 +125,7 @@ var vm1 = new Vue({
 	  data: {
 	    type: 'BC',
 	    items:totalList,
-	    chapter:'',
+	    chapter:'1',
 	    gospel: '창세기',
 	    verses:'',
 	    fontSize: 1,
@@ -168,15 +168,15 @@ var vm1 = new Vue({
 			},
 			selectChapter : function(selected){
 				this.chapter = selected;
-				search();
+				//search();
 			}
 		}
 	});
 		
 	function search(){
-		console.log("123");
+		//console.log("123");
 		$.ajax({
-			url:'/wbProject/getBible.do',
+			url:'/wbProject/home.do',
 			type:'POST',
 			dataType:"json",
 			data :{

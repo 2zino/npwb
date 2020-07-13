@@ -2678,6 +2678,12 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	border-color: #266855
 }
 
+.btn-main {
+	color: #266855;
+	background-color: #fff;
+	border-color: #266855
+}
+
 .btn-primary:hover {
 	color: #fff;
 	background-color: #266855;
@@ -2697,6 +2703,13 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	{
 	color: #fff;
 	background-color: #266855;
+	background-image: none;
+}
+
+.btn-main.active, .btn-main:active, .show>.btn-main.dropdown-toggle
+	{
+	color: #266855;
+	background-color: #fff;
 	background-image: none;
 }
 

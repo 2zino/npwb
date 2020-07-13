@@ -108,7 +108,7 @@
 		</div>
 		<div class="col-md-3" style = "padding-top: 1rem; text-align: center; ">
 			<div class="col-12" >	 
-				<button type="button" v-on:click="search" class="btn btn-md btn-main">
+				<button type="button" v-on:click="search" class="btn btn-md btn-primary">
 					<span>찾기</span>
 				</button>
 			</div>

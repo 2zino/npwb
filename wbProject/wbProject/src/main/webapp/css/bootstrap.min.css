@@ -2655,8 +2655,6 @@ select.form-control:focus::-ms-value {
 
 .btn.focus, .btn:focus {
 	outline: 0;
-	-webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, .25);
-	box-shadow: 0 0 0 2px rgba(2, 117, 216, .25)
 }
 
 .btn.disabled, .btn:disabled {
@@ -2690,8 +2688,6 @@ a.btn.disabled, fieldset[disabled] a.btn {
 }
 
 .btn-primary.focus, .btn-primary:focus {
-	-webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, .5);
-	box-shadow: 0 0 0 2px rgba(2, 117, 216, .5)
 }
 
 .btn-primary.disabled, .btn-primary:disabled {

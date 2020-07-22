@@ -32,14 +32,13 @@
 	
 	var last_top=0;
 	$(window).scroll(function(){
-		console.log("#");
 		var this_top=$(this).scrollTop();
 		if(this_top>last_top){
 			//$(".lbNav").addClass("hide");
-			$('.lbNav').css({'-webkit-transform':'-webkit-translateY(-56px)','transform':'translateY(-56px)';
+			$('.lbNav').css({'-webkit-transform':'-webkit-translateY(-56px)','transform':'translateY(-56px)'});
 		}else{
 			//$(".lbNav").removeClass("hide");
-			$('.lbNav').css({'-webkit-transform':'-webkit-translateY(0)','transform':'translateY(0)';
+			$('.lbNav').css({'-webkit-transform':'-webkit-translateY(0)','transform':'translateY(0)'});
 		}
 		last_top=this_top;
 	})

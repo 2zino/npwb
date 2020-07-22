@@ -25,6 +25,12 @@
 </script>
 
 <html>
+	<form method = 'POST' id = 'mainData'>
+		<input type='hidden' name="type" id="type" value = ""/>
+	    <input type='hidden' name="gospel" id="gospel" value = ""/>
+	    <input type='hidden' name="chapter" id="chapter" value = ""/>
+	    <input type='hidden' name="totalList" id="totalList" value = "${totalList}"/>
+	</form>
 	<head>
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -120,6 +126,7 @@
 </html>
 <script>
 var totalList=${totalList};
+console.log(totalList);
 var vm1 = new Vue({
 	 el: '#bible',
 	  data: {
@@ -174,22 +181,12 @@ var vm1 = new Vue({
 	});
 		
 	function search(){
-		//console.log("123");
-		$.ajax({
-			url:'/wbProject/home.do',
-			type:'POST',
-			dataType:"json",
-			data :{
-				"TYPE":vm1.type,
-				"GOSPEL":vm1.gospel,
-				"CHAPTER":vm1.chapter
-			},
-			error:function(){
-				vm1._data.verses="error";
-			},
-			success:function(data){
-				vm1._data.verses = data;
-			}
-		});
+		var url = '/wbProject/home.do';
+		$("#type").attr("value" , vm1.type);
+		$("#gospel").attr("value" , vm1.gospel);
+		$("#chapter").attr("value" , vm1.chapter);
+
+		console.log("vm1.items : "+vm1.items);
+		$("#mainData").attr({action:url, method:'post'}).submit();
 	}
 </script>

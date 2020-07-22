@@ -5,6 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+
 html {
 	font-family: sans-serif;
 	line-height: 1.15;
@@ -467,6 +468,27 @@ output {
 	display: none !important
 }
 
+.lbNav{
+	position : fixed;
+	top : 0;
+	left : 0;
+	right : 0;
+	height : 37.2px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-right: -15px;
+	margin-left: -15px;
+	z-index:99;
+}
+.lbNav hide{
+	-webkit-transform : -webkit-transform:-webkit-translateY(-56px);
+}
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
 	margin-bottom: .5rem;
 	font-family: inherit;
@@ -795,7 +817,8 @@ pre code {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	margin-right: -15px;
-	margin-left: -15px
+	margin-left: -15px;
+	margin-top: 37.2px;
 }
 
 .row2 {
@@ -9328,4 +9351,5 @@ a.text-gray-dark:focus, a.text-gray-dark:hover {
 	border-left: 6px solid green;
   	height: 10rem;
 }
+
 } /*# sourceMappingURL=bootstrap.min.css.map */

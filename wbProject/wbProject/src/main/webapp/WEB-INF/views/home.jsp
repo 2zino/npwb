@@ -8,6 +8,13 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168903909-1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> <!-- Bootstrap tooltips require Tether 오류 수정 -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+    	
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -22,22 +29,33 @@
 	    setTimeout(function() {
 	        window.scrollTo(0, 1);}, 100);
 	};
+	
+	var last_top=0;
+	$(window).scroll(function(){
+		console.log("#");
+		var this_top=$(this).scrollTop();
+		if(this_top>last_top){
+			//$(".lbNav").addClass("hide");
+			$('.lbNav').css({'-webkit-transform':'-webkit-translateY(-56px)','transform':'translateY(-56px)';
+		}else{
+			//$(".lbNav").removeClass("hide");
+			$('.lbNav').css({'-webkit-transform':'-webkit-translateY(0)','transform':'translateY(0)';
+		}
+		last_top=this_top;
+	})
+	
 </script>
 
 <html>
 	<head>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">	
 	    <title>Welcome to LIGHT BIBLE!</title>
 	    <link href="css/bootstrap.min.css" rel="stylesheet">
 	    <link href="css/style.css" rel="stylesheet">
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-		<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-	    <script src="js/jquery.min.js"></script>
-	    <script src="js/bootstrap.min.js"></script>
-    	<script src="js/scripts.js"></script>
-    	
+		
     	<style>
 			@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Nanum+Myeongjo:wght@400;700;800&display=swap');
 			.nn-gothic4{
@@ -71,12 +89,12 @@
 	
 	
     <div class="container-fluid" id='bible'>
-	<div class="row" style ="align :center; background : #266855;">
+	<div class="lbNav" style ="align :center; background : #266855;">
 		<!--  <div class="col-4" style = "text-align: center; vertical-align:text-bottom; padding-top: 0.3rem;">
 			<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
 		</div>-->
 		<div class="col-12" style = "text-align: center; vertical-align: middle;display: table-cell; padding-top: 0.3rem;">
-			<div class="dropdown">
+			<div class=	"dropdown">
 				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
 					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
 				</button>

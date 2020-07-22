@@ -474,6 +474,7 @@ output {
 	left : 0;
 	right : 0;
 	height : 38px;
+	width : 110%;
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;

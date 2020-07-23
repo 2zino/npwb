@@ -131,10 +131,10 @@ var vm1 = new Vue({
 	 el: '#bible',
 	  data: {
 	    type: 'BC',
-	    items:totalList,
-	    chapter:'1',
+	    items: totalList,
+	    chapter: '1',
 	    gospel: '창세기',
-	    verses:'',
+	    verses: '',
 	    fontSize: 1,
 	    chapterSize: ''
 	  },
@@ -186,7 +186,7 @@ var vm1 = new Vue({
 		$("#gospel").attr("value" , vm1.gospel);
 		$("#chapter").attr("value" , vm1.chapter);
 
-		console.log("vm1.items : "+vm1.items);
+		//console.log("vm1.items : "+vm1.items);
 		$("#mainData").attr({action:url, method:'post'}).submit();
 	}
 </script>

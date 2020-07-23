@@ -1,5 +1,6 @@
 package com.wb.hb;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -40,10 +41,11 @@ public class HomeController {
 	 * @throws JsonProcessingException 
 	 */
 	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public ModelAndView home(Locale locale, Model model) throws ClassNotFoundException, SQLException, JsonProcessingException {
+	public ModelAndView main(Locale locale, Model model) throws ClassNotFoundException, SQLException, JsonProcessingException {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("home");
+		//mv.setViewName("home");
+		mv.setViewName("main");
 		HashMap<String,String> input = new HashMap<String, String>();
 
 		input.put("version", "개역개정");
@@ -57,20 +59,45 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/main2.do", method = RequestMethod.GET)
-	public ModelAndView home2(Locale locale, Model model) throws ClassNotFoundException, SQLException, JsonProcessingException {
+	@RequestMapping(value = "/home.do", method = RequestMethod.POST)
+	public ModelAndView home(HttpServletRequest request, Model model) throws ClassNotFoundException, SQLException, JsonProcessingException, UnsupportedEncodingException {
 		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("home2");
-		HashMap<String,String> input = new HashMap<String, String>();
-
-		input.put("version", "개역개정");
-		input.put("type", "BC");
+		request.setCharacterEncoding("UTF-8");
+		String type = request.getParameter("type");
+		String gospel = request.getParameter("gospel");
+		String chapter = request.getParameter("chapter");
+		//String totalSting = request.getParameter("totalList");
+		//String totalSting = "";
+		String jsonStr = "";
 		
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonStr = mapper.writeValueAsString(dao.getTotalData(input));
 		
-		mv.addObject("totalList",jsonStr);
+		mv.setViewName("/home");
+		HashMap<String,String> input = new HashMap<String, String>();
+		HashMap<String,String> input1 = new HashMap<String, String>();
+
+		input.put("type",type);
+		input.put("version", "개역개정");
+		input.put("chapter", chapter);
+		input.put("gospel", gospel);
+		
+		input1.put("version", "개역개정");
+		input1.put("type", "BC");
+		
+		try {
+			jsonStr = mapper.writeValueAsString(dao.getContents(input));
+			String totalSting = mapper.writeValueAsString(dao.getTotalData(input));
+			
+			mv.addObject("totalList",totalSting);
+			mv.addObject("contents",jsonStr);
+			
+		} catch (JsonProcessingException e) {
+		   e.printStackTrace();
+		  }
+		
+		mv.addObject("type",type);
+		mv.addObject("gospel",gospel);
+		mv.addObject("chapter",chapter);
 		
 		return mv;
 	}

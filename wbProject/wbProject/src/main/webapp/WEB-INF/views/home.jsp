@@ -155,20 +155,22 @@
 </html>
 <script>
 var totalList=${totalList};
+var type = '${type}';
+var gospel = '${gospel}'
+var chapter = '${chapter}'
 var vm1 = new Vue({
 	 el: '#bible',
 	  data: {
-	    type: 'BC',
-	    items:totalList,
-	    chapter:'',
-	    gospel: '창세기',
-	    verses:'',
+	    type: type,
+	    items: totalList,
+	    chapter: chapter,
+	    gospel: gospel,
+	    verses: '',
 	    fontSize: 1,
 	    chapterSize: ''
 	  },
 		methods:{
 			isGospel : function(item){
-				//console.log(item);
 				if('' == this.type){
 					return null;
 				}else if(item.CHAPTER == '1' && item.TYPE == this.type){

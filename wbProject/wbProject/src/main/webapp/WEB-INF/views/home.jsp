@@ -130,7 +130,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<p class='nn-gothic7' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.8em" v-if ="chapter ==''">WELCOME</p>
+				<p class='nn-gothic7' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.8em" v-if ="chapter ==''"></p>
 				<p class='nn-gothic7' style ="letter-spacing: 2px; margin-left: 0.3rem; margin-bottom: 0rem; text-align: left; font-size:1.8em" v-if ="chapter != ''">{{ gospel }} <small class='nn-gothic4' v-if ="chapter != ''">{{ chapter }}장</small></p>
 			</div>
 		</div>
@@ -158,6 +158,8 @@ var totalList=${totalList};
 var type = '${type}';
 var gospel = '${gospel}'
 var chapter = '${chapter}'
+var contents = ${contents}
+console.log(contents);
 var vm1 = new Vue({
 	 el: '#bible',
 	  data: {
@@ -165,7 +167,7 @@ var vm1 = new Vue({
 	    items: totalList,
 	    chapter: chapter,
 	    gospel: gospel,
-	    verses: '',
+	    verses: contents,
 	    fontSize: 1,
 	    chapterSize: ''
 	  },
@@ -247,7 +249,7 @@ var vm1 = new Vue({
 			type:'POST',
 			dataType:"json",
 			data :{
-				"TYPE":vm1.type,
+				"TYPE": vm1.type,
 				"GOSPEL":vm1.gospel,
 				"CHAPTER":vm1.chapter
 			},

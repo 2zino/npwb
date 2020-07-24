@@ -77,12 +77,11 @@
 	
 	
     <div class="container-fluid" id='bible'>
-	<div class="row" style ="align :center; background : #266855;">
-		<div class="col-4" style = "text-align: center; vertical-align:text-bottom; padding-top: 0.3rem;">
-			<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
-		</div>
-	</div>
+		
 		<div class="col-md-20" style = "padding-top: 15rem; text-align: center; ">
+			<div class="col-6" style = "text-align: center;">
+				<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
+			</div>
 			<div class="col-12" style = "text-align: center; vertical-align: middle; display: table-cell; padding-top: 0.3rem;">
 			<div class="dropdown">
 				<button class="btn btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>

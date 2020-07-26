@@ -159,7 +159,6 @@ var type = '${type}';
 var gospel = '${gospel}'
 var chapter = '${chapter}'
 var contents = ${contents}
-console.log(contents);
 var vm1 = new Vue({
 	 el: '#bible',
 	  data: {
@@ -218,6 +217,7 @@ var vm1 = new Vue({
 				}
 			},
 			next : function(){
+				//console.log(this.chapterSize);
 				if(this.chapterSize > this.chapter){
 					this.chapter=Number(this.chapter)+1;
 					search();

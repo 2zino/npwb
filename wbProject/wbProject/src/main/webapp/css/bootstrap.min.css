@@ -2666,7 +2666,7 @@ select.form-control:focus::-ms-value {
 	-ms-user-select: none;
 	user-select: none;
 	border: 1px solid transparent;
-	padding: .5rem 2rem;
+	padding: .5rem 1.7rem;
 	font-size: 0.75rem;
 	-webkit-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
@@ -3167,7 +3167,7 @@ tbody.collapse.show {
 	display: inline-block;
 	width: 0;
 	height: 0;
-	margin-left: .3em;
+	margin-left: .5em;
 	vertical-align: middle;
 	content: "";
 	border-top: .3em solid;

@@ -78,11 +78,11 @@
 	
     <div class="container-fluid" id='bible'>
 		
-		<div class="col-md-20" style = "padding-top: 15rem; text-align: center; ">
-			<div class="col-6" style = "text-align: center;">
+		<div class="col-md-20" style = "padding-top: 10rem; ">
+			<div class="col-6" style = "margin-left :auto; margin-right:auto;">
 				<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
 			</div>
-			<div class="col-12" style = "text-align: center; vertical-align: middle; display: table-cell; padding-top: 0.3rem;">
+			<div class="col-12" style = "display: table-cell; padding-top: 3rem; margin-left :auto; margin-right:auto;">
 			<div class="dropdown">
 				<button class="btn btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
 					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
@@ -111,7 +111,7 @@
 			</div>
 		</div>
 		</div>
-		<div class="col-md-3" style = "padding-top: 1rem; text-align: center; ">
+		<div class="col-md-3" style = "padding-top: 1.5rem; text-align: center; ">
 			<div class="col-12" >	 
 				<button type="button" v-on:click="search" class="btn btn-md btn-primary">
 					<span>찾기</span>
@@ -125,7 +125,6 @@
 </html>
 <script>
 var totalList=${totalList};
-console.log(totalList);
 var vm1 = new Vue({
 	 el: '#bible',
 	  data: {

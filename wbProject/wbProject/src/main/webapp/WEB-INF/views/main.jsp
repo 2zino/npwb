@@ -82,6 +82,7 @@
 			<div class="col-6" style = "margin-left :auto; margin-right:auto;">
 				<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
 			</div>
+			<center>
 			<div class="col-12" style = "display: table-cell; padding-top: 3rem; margin-left :auto; margin-right:auto;">
 			<div class="dropdown">
 				<button class="btn btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
@@ -111,6 +112,7 @@
 			</div>
 		</div>
 		</div>
+		</center>
 		<div class="col-md-3" style = "padding-top: 1.5rem; text-align: center; ">
 			<div class="col-12" >	 
 				<button type="button" v-on:click="search" class="btn btn-md btn-primary">

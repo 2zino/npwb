@@ -129,21 +129,19 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="page-header">
+			<div class="page-header" style = "border-bottom: 1px solid #266855; ">
 				<p class='nn-gothic7' style ="margin-top: 0.5rem; margin-bottom: 0rem; text-align: left; font-size:1.8em" v-if ="chapter ==''"></p>
 				<p class='nn-gothic7' style ="letter-spacing: 2px; margin-left: 0.3rem; margin-bottom: 0rem; text-align: left; font-size:1.8em" v-if ="chapter != ''">{{ gospel }} <small class='nn-gothic4' v-if ="chapter != ''">{{ chapter }}장</small></p>
 			</div>
 		</div>
 	</div>
-	<hr class = 'line'> <!-- line추가 -->
-		<div class="col-md-10">
+		<div class="col-md-10" style = "padding-top : 1.5rem;">
 			<p v-for = "verse in verses" v-bind:style="{ fontSize: fontSize + 'rem'}">
 				<span style='font-size:0.9em;' class='nn-myeongjo4' v-html = 'isContents(verse)' ></span>
 			</p>
 		</div>
-	<hr class = 'line'> <!-- line추가 -->
 	<div>
-		<div class="col-md-auto">
+		<div class="col-md-auto" style = "border-top: 1px solid #266855; padding-bottom : 2rem; padding-top:0.5rem ">
 		<center>
 			<span v-on:click="fontSize < 0.5? fontSize = 0.25: fontSize -= 0.25" class="badge badge-pill"> - </span><img src="./img/text.jpg" width="20rem"><span v-on:click="fontSize += 0.25" class="badge badge-pill"> + </span>
 			<span v-on:click = 'before'class="badge badge-pill"> < </span><img src="./img/book.jpg" width="20rem"><span v-on:click="next" class="badge badge-pill"> > </span>
@@ -210,16 +208,16 @@ var vm1 = new Vue({
 				search();
 			},
 			before : function(){
-				if(this.chapter>1){
-					this.chapter=Number(this.chapter)-1;
+				if(this.chapter > 1){
+					this.chapter = Number(this.chapter)-1;
 					search();
 					$('html, body').stop().animate({scrollTop: 0}, 1000);
 				}
 			},
 			next : function(){
-				//console.log(this.chapterSize);
-				if(this.chapterSize > this.chapter){
-					this.chapter=Number(this.chapter)+1;
+				
+				if(Number(this.chapterSize) > Number(this.chapter)){
+					this.chapter= Number(this.chapter)+1;
 					search();
 					$('html, body').stop().animate({scrollTop: 0}, 1000);
 				}

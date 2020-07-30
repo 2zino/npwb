@@ -83,42 +83,38 @@
 				<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
 			</div>
 			<center>
-			<div class="col-12" style = "display: table-cell; padding-top: 3rem; margin-left :auto; margin-right:auto;">
-			<div class="dropdown">
-				<button class="btn btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
-					<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
-				</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-					 <a  class="dropdown-item" value = 'BC' v-on:click = select("BC")>구약</a> 
-					 <a class="dropdown-item" vaule = 'AD' v-on:click = select("AD")>신약</a>
+				<div class="col-12" style = "display: table-cell; padding-top: 1.5rem; margin-left :auto; margin-right:auto;">
+					<div class="search-bar">
+						<div class="dropdown">
+							<button class="btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
+								<span v-if = "type =='' || type =='BC'">구약</span><span v-else>신약</span>
+							</button>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+								 <a  class="dropdown-item" value = 'BC' v-on:click = select("BC")>구약</a> 
+								 <a class="dropdown-item" vaule = 'AD' v-on:click = select("AD")>신약</a>
+							</div>
+						</div>
+						<div class="dropdown" style="float:left;">
+							 
+							<button class="btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+								<span v-if = "gospel ==''">창세기</span><span v-else>{{ gospel }}</span>
+							</button>
+							<div class="dropdown-menu" id ='Gospel' aria-labelledby="dropdownMenuButton" >
+								 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" v-on:click = "selectGospel(isGospel(item))">{{ isGospel(item)  }}</a>
+							</div>
+						</div>
+						<div class="dropdown" style="float:left;">
+							<button class="btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+								<span v-if = "chapter ==''">1</span><span v-else>{{ chapter }}</span>
+							</button>
+							<div class="dropdown-menu" id = 'Chapter' aria-labelledby="dropdownMenuButton">
+								 <a v-for ="item in items" v-show = 'isChapter(item) != null'class="dropdown-item" v-on:click = "selectChapter(isChapter(item))">{{ isChapter(item)  }}</a>
+							</div>
+						</div>
+						<div v-on:click="search" class="btn-main-search"><img src="./img/search.jpg" width="100%"></div>
+					</div>
 				</div>
-			</div>
-			<div class="dropdown" style="float:left;">
-				 
-				<button class="btn btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-					<span v-if = "gospel ==''">창세기</span><span v-else>{{ gospel }}</span>
-				</button>
-				<div class="dropdown-menu" id ='Gospel' aria-labelledby="dropdownMenuButton" >
-					 <a v-for ="item in items" v-show ='isGospel(item) !=null'class="dropdown-item" v-on:click = "selectGospel(isGospel(item))">{{ isGospel(item)  }}</a>
-				</div>
-			</div>
-			<div class="dropdown" style="float:left;">
-				<button class="btn btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-					<span v-if = "chapter ==''">1</span><span v-else>{{ chapter }}</span>
-				</button>
-				<div class="dropdown-menu" id = 'Chapter' aria-labelledby="dropdownMenuButton">
-					 <a v-for ="item in items" v-show = 'isChapter(item) != null'class="dropdown-item" v-on:click = "selectChapter(isChapter(item))">{{ isChapter(item)  }}</a>
-				</div>
-			</div>
-		</div>
-		</div>
-		</center>
-		<div class="col-md-3" style = "padding-top: 1.5rem; text-align: center; ">
-			<div class="col-12" >	 
-				<button type="button" v-on:click="search" class="btn btn-md btn-primary">
-					<span>찾기</span>
-				</button>
-			</div>
+			</center>
 		</div>
 	<div>
 	</div>

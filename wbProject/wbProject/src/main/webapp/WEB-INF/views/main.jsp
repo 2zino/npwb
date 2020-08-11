@@ -83,7 +83,7 @@
 				<a href="http://106.10.53.202:8080/wbProject/main.do"><img src="./img/logo.jpg" width="100%"></a>
 			</div>
 			<center>
-				<div class="col-12" style = "display: table-cell; padding-top: 1.5rem; margin-left :auto; margin-right:auto;">
+				<div class="col-20" style = "display: table-cell; padding-top: 1.5rem; margin-left :auto; margin-right:auto;">
 					<div class="search-bar">
 						<div class="dropdown">
 							<button class="btn-main dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" text =''>
@@ -119,6 +119,10 @@
 	<div>
 	</div>
 	</div>
+		<div style="padding-top : 2rem; height: 10rem ;border : 1px solid #266855; margin-top : 5rem; background-image :url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'); background-size:100% 100%; opacity:0.7 !important">
+				<div style="opacity: 1">태초의 하나님이 천지를 창조하시니라 </div>
+				<div style= "margin-top : 4rem ;padding-left : 8rem">창세기 1장 1절 </div>
+		</div>
   </body>
 </html>
 <script>
